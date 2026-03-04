@@ -21,8 +21,8 @@ export default function Contacto() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {/* Info de Contacto */}
-            <div className="space-y-8">
-              <div className="bg-bukue-accent p-6 rounded-2xl border border-bukue-primary/10">
+            <div className="space-y-8 ">
+              <div className="bg-bukue-accent p-6 rounded-2xl border border-bukue-primary/10 shadow-xl">
                 <h3 className="text-xl font-bold text-bukue-dark mb-6">Información Directa</h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 text-gray-700">
