@@ -1,8 +1,29 @@
 "use client";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, Zap } from 'lucide-react';
 import { ArrowRight, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
+
+const AnimatedLeaves = () => {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  return (
+    <motion.div
+      style={{ y, opacity }}
+      className="fixed top-0 left-0 w-full z-40 pointer-events-none"
+    >
+      <div className="relative w-full h-64">
+        <Image
+          src="/HojasSuperiores_SinFondo.png" // Usando tu imagen cargada
+          alt="Hojas decorativas"
+          fill
+          className="object-contain object-top opacity-80"
+        />
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Home() {
   return (
