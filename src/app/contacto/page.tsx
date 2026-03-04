@@ -1,0 +1,99 @@
+"use client";
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+
+export default function Contacto() {
+  return (
+    <div className="pt-32 pb-20 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="max-w-5xl mx-auto">
+          {/* Encabezado */}
+          <div className="text-center mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-bold text-bukue-dark mb-4"
+            >
+              Hablemos de su <span className="text-bukue-primary">Futuro Sostenible</span>
+            </motion.h1>
+            <p className="text-gray-600 text-lg">Estamos listos para asesorarle en sus proyectos ambientales y de salud ocupacional.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Info de Contacto */}
+            <div className="space-y-8">
+              <div className="bg-bukue-accent p-6 rounded-2xl border border-bukue-primary/10">
+                <h3 className="text-xl font-bold text-bukue-dark mb-6">Información Directa</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 text-gray-700">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                      <Phone size={20} />
+                    </div>
+                    <span>(506) 8801-7441</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-gray-700">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                      <Mail size={20} />
+                    </div>
+                    <span>admin@bukuecr.com</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-gray-700">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                      <MapPin size={20} />
+                    </div>
+                    <span>San José, Costa Rica</span>
+                  </div>
+                </div>
+              </div>
+
+              <a 
+                href="https://wa.me/50688017441" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white p-4 rounded-2xl font-bold transition-all shadow-lg shadow-green-200"
+              >
+                <MessageCircle size={24} />
+                WhatsApp Directo
+              </a>
+            </div>
+
+            {/* Formulario */}
+            <div className="md:col-span-2 bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-50">
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-bukue-dark ml-1">Nombre Completo</label>
+                    <input type="text" className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" placeholder="Ej: Juan Pérez" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-bukue-dark ml-1">Correo Electrónico</label>
+                    <input type="email" className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" placeholder="juan@empresa.com" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
+                  <select className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all">
+                    <option>Tramitología Ambiental</option>
+                    <option>Salud Ocupacional</option>
+                    <option>Certificaciones ISO / Carbono Neutral</option>
+                    <option>Otros</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-bukue-dark ml-1">Mensaje</label>
+                  <textarea rows={4} className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" placeholder="Cuéntenos sobre su proyecto..."></textarea>
+                </div>
+
+                <button type="submit" className="w-full md:w-auto bg-bukue-dark hover:bg-bukue-primary text-white font-bold py-4 px-10 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                  Enviar Mensaje <Send size={18} />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,15 +6,14 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Educación', href: '#educacion' },
-    { name: 'Salud Ocupacional', href: '#salud' },
-    { name: 'Certificaciones', href: '#certificaciones' },
-  ];
-
+const navLinks = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Nosotros', href: '/nosotros' },
+  { name: 'Servicios', href: '/servicios' },
+  { name: 'Educación', href: '/educacion' },
+  { name: 'Salud Ocupacional', href: '/salud' },
+  { name: 'Certificaciones', href: '/certificaciones' },
+];
   return (
     <nav className="fixed w-full z-50 top-0 border-b border-white/10 backdrop-blur-md bg-white/80">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -51,13 +50,13 @@ const Navbar = () => {
 
         {/* Botón CTA (Escondido en móviles pequeños) */}
         <div className="hidden lg:flex md:order-2">
-          <Link 
-            href="https://wa.me/50688017441" 
-            className="text-white bg-bukue-primary hover:bg-bukue-dark px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-bukue-primary/20"
-          >
-            Contáctanos
-          </Link>
-        </div>
+            <Link 
+                href="/contacto" 
+                className="text-white bg-bukue-primary hover:bg-bukue-dark px-6 py-2.5 rounded-full font-bold transition-all shadow-md hover:shadow-bukue-primary/20"
+            >
+                Contáctanos
+            </Link>
+            </div>
       </div>
     </nav>
   );
