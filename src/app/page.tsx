@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MessageCircle, Zap } from 'lucide-react';
+import { MessageCircle, Route, Zap } from 'lucide-react';
 import { ArrowRight, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
 
 const AnimatedLeaves = () => {
@@ -78,6 +78,10 @@ export default function Home() {
             <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
               <ShieldCheck className="text-bukue-primary mb-4" size={32} />
               <h3 className="font-bold text-bukue-dark">Cumplimiento</h3>
+            </div>
+            <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
+              <Route className="text-bukue-primary mb-4" size={32} /> 
+              <h3 className="font-bold text-bukue-dark">Estrategía</h3>
             </div>
           </div>
         </div>
