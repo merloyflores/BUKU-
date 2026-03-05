@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation'; // Importamos el hook de navegación
 import { Menu, X } from 'lucide-react';
 
@@ -11,7 +12,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Servicios', href: '/servicios' },
+    { name: 'Viabilidades Ambientales', href: '/servicios' },
     { name: 'Educación', href: '/educacion' },
     { name: 'Salud Ocupacional', href: '/salud' },
     { name: 'Certificaciones', href: '/certificaciones' },
@@ -20,11 +21,17 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 top-0 border-b border-white/10 backdrop-blur-md bg-white/80">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="/" className="flex items-center">
-          <span className="text-2xl font-black text-bukue-dark tracking-tighter">
-            BUKUË<span className="text-bukue-light">.</span>
-          </span>
-        </Link>
+      <Link href="/" className="flex items-center group transition-transform hover:scale-105">
+        <div className="relative w-32 h-12 md:w-40 md:h-14">
+          <Image 
+            src="/LOGO_BUKUE_sin fondo.png" 
+            alt="BUKUË Consultoría Ambiental" 
+            fill
+            className="object-contain"
+            priority // Esto asegura que el logo cargue de primero
+          />
+        </div>
+      </Link>
 
         {/* Botón Hamburguesa */}
         <button 
@@ -70,7 +77,7 @@ const Navbar = () => {
                 : 'bg-bukue-primary text-white hover:bg-bukue-dark hover:shadow-bukue-primary/20'
             }`}
           >
-            Contáctanos
+            Contáctenos
           </Link>
         </div>
       </div>
