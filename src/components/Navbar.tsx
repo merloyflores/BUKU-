@@ -12,10 +12,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Viabilidades Ambientales', href: '/servicios' },
-    { name: 'Educación', href: '/educacion' },
+    { name: 'Viabilidades Ambientales', href: '/ViabilidadesAmbientales' },
     { name: 'Salud Ocupacional', href: '/salud' },
     { name: 'Certificaciones', href: '/certificaciones' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   return (

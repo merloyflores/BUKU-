@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import { select } from 'framer-motion/client';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 
 export default function Contacto() {
@@ -72,8 +73,8 @@ export default function Contacto() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
-                  <select className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all">
+                  <label htmlFor="asunto" className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
+                  <select id="asunto" title="Seleccione el servicio de interés" className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all">
                     <option>Tramitología Ambiental</option>
                     <option>Salud Ocupacional</option>
                     <option>Certificaciones ISO / Carbono Neutral</option>

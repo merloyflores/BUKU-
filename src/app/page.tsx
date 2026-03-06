@@ -40,11 +40,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay para lectura */}
         
         <div className="container mx-auto px-6 relative z-20 text-white">
-          <h1 className="text-5xl md:text-7xl font-bold max-w-4xl leading-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-bold max-w-4xl leading-tight"
+          >
             Sostenibilidad que genera <span className="text-bukue-light">Rentabilidad</span>
-          </h1>
+          </motion.h1>
           <p className="mt-6 text-xl text-gray-100 max-w-2xl font-light">
-            En BUKUË creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
+            En <b className='font-bold'>BUKU<span className="text-shadow-bukue-primary">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
           </p>
           <div className="mt-10 flex gap-4">
             <a href="#contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
