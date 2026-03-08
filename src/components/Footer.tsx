@@ -8,15 +8,15 @@ const Footer = () => {
   return (
     <footer className="bg-bukue-dark text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Grid: Centrado en móvil (text-center), Izquierda en PC (md:text-left) */}
+        {/* Grid de columnas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-center md:text-left">
           
-          {/* Columna 1: Branding */}
+          {/* Columna 1: Branding (SIEMPRE VISIBLE) */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <Image 
               src="/LOGO_BUKUE_sin fondo.png" 
               alt="Logo BUKUË" 
-              width={60} // Aumenté un poco para que se vea mejor
+              width={60}
               height={60}
             />
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -42,22 +42,22 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Columna 2: Empresa */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 border-b-2 md:border-b-0 md:border-l-4 border-bukue-light pb-2 md:pb-0 md:pl-3">
+          {/* Columna 2: Empresa (OCULTO EN MÓVIL) */}
+          <div className="hidden md:block">
+            <h3 className="text-lg font-bold mb-6 border-l-4 border-bukue-light pl-3">
               Empresa
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><Link href="/" className="hover:text-white flex items-center justify-center md:justify-start gap-2">Inicio</Link></li>
-              <li><Link href="#nosotros" className="hover:text-white flex items-center justify-center md:justify-start gap-2">Sobre Nosotros</Link></li>
-              <li><Link href="#servicios" className="hover:text-white flex items-center justify-center md:justify-start gap-2">Soluciones</Link></li>
-              <li><Link href="https://wa.me/50688017441" className="hover:text-white flex items-center justify-center md:justify-start gap-2 tracking-wide">Cita de Valoración</Link></li>
+              <li><Link href="/" className="hover:text-white flex items-center gap-2">Inicio</Link></li>
+              <li><Link href="#nosotros" className="hover:text-white flex items-center gap-2">Sobre Nosotros</Link></li>
+              <li><Link href="#servicios" className="hover:text-white flex items-center gap-2">Soluciones</Link></li>
+              <li><Link href="https://wa.me/50688017441" className="hover:text-white flex items-center gap-2 tracking-wide">Cita de Valoración</Link></li>
             </ul>
           </div>
 
-          {/* Columna 3: Servicios */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 border-b-2 md:border-b-0 md:border-l-4 border-bukue-light pb-2 md:pb-0 md:pl-3">
+          {/* Columna 3: Servicios (OCULTO EN MÓVIL) */}
+          <div className="hidden md:block">
+            <h3 className="text-lg font-bold mb-6 border-l-4 border-bukue-light pl-3">
               Servicios
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
@@ -68,21 +68,21 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 4: Contacto */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 border-b-2 md:border-b-0 md:border-l-4 border-bukue-light pb-2 md:pb-0 md:pl-3">
+          {/* Columna 4: Contacto (OCULTO EN MÓVIL) */}
+          <div className="hidden md:block">
+            <h3 className="text-lg font-bold mb-6 border-l-4 border-bukue-light pl-3">
               Contacto Directo
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li className="flex flex-col md:flex-row items-center md:items-start gap-3">
+              <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-bukue-light shrink-0" />
                 <span>San José, Costa Rica</span>
               </li>
-              <li className="flex flex-col md:flex-row items-center md:items-start gap-3">
+              <li className="flex items-start gap-3">
                 <Phone size={18} className="text-bukue-light shrink-0" />
                 <span>(506) 8801-7441</span>
               </li>
-              <li className="flex flex-col md:flex-row items-center md:items-start gap-3">
+              <li className="flex items-start gap-3">
                 <Mail size={18} className="text-bukue-light shrink-0" />
                 <span>admin@bukuecr.com</span>
               </li>
@@ -90,7 +90,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Parte inferior */}
+        {/* Parte inferior (SIEMPRE VISIBLE) */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-center">
           <p className="text-gray-500 text-xs">
             © {currentYear} BUKUË Consultorías Ambientales. Todos los derechos reservados.
