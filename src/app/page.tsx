@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* 2. PROPUESTA DE VALOR */}
-      <section id="nosotros" className="container mx-auto px-4">
+      <section id="nosotros" className="container mx-auto px-4 bg-white">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-bukue-dark text-4xl font-bold mb-6">Tu Aliado Estratégico en Servicios Ambientales</h2>
