@@ -27,7 +27,7 @@ const AnimatedLeaves = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20 bg-white">
       {/* HERO SECTION - Usando tus molinos eólicos */}
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <Image 
