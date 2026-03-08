@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
     { name: 'Viabilidades Ambientales', href: '/ViabilidadesAmbientales' },
-    { name: 'Salud Ocupacional', href: '/salud' },
+    { name: 'Salud Ocupacional', href: '/salud-ocupacional' },
     { name: 'Certificaciones', href: '/certificaciones' },
     { name: 'Blog', href: '/blog' },
   ];

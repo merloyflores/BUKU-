@@ -5,11 +5,11 @@ export const blogPosts = [
     title: "Guía Definitiva: Cómo obtener su Viabilidad Ambiental en 2026",
     excerpt: "Todo lo que los desarrolladores necesitan saber sobre los nuevos tiempos de respuesta y requisitos de SETENA.",
     category: "Normativa",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Ejemplo de video cabecera
+    videoUrl: "https://www.youtube.com/watch?v=JjX-aCZOPx0", // Ejemplo de video cabecera
     content: "Contenido extenso del post...",
     images: [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09"
+      "/SETENA-db53db1c.jpeg",
+      "/Setena.jpg"
     ],
     date: "4 Mar, 2026",
     readTime: "8 min"
@@ -23,7 +23,7 @@ export const blogPosts = [
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 
     date: "4 Mar, 2026",
     readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+    image: "/SETENA-db53db1c.jpeg",
     images: [
       "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
       "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
@@ -39,10 +39,10 @@ export const blogPosts = [
     videoUrl: null,
     date: "2 Mar, 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&q=80&w=1200",
+    image: "/TRATAMIENTO-BIOLOGICO-1024x572.png",
     images: [
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
-      "https://images.unsplash.com/photo-1541888946425-d81bb19480c5"
+      "/AGUAS-RESIDUALES-CARNE-1024x576.webp",
+      "/FBR-1024x681.png"
     ]
   },
   {
@@ -51,13 +51,13 @@ export const blogPosts = [
     title: "5 Errores que disparan multas en las Regencias Ambientales",
     excerpt: "Un análisis detallado de los fallos más comunes en la bitácora y cómo una supervisión correcta protege su inversión.",
     category: "Casos de Éxito",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    videoUrl: "/regencia_ambiental.VLC",
     date: "28 Feb, 2026",
     readTime: "10 min",
-    image: "https://images.unsplash.com/photo-1454165833767-027eeed15c3e?auto=format&fit=crop&q=80&w=1200",
+    image: "/086_gesiton_ambiental-1280x640.jpg",
     images: [
-      "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca",
-      "https://images.unsplash.com/photo-1521791136064-7986c2923216"
+      "/regencia.png",
+      "/RioArio.jpg"
     ]
   },
   {
@@ -69,10 +69,10 @@ export const blogPosts = [
     videoUrl: null,
     date: "25 Feb, 2026",
     readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1504307651254-35682f94a1d8?auto=format&fit=crop&q=80&w=1200",
+    image: "/seguridad-y-salud-ocupacional.webp",
     images: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f",
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952"
+      "/Seguridad2.jpg",
+      "/Seguridad3.jfif"
     ]
   },
   {
@@ -81,13 +81,13 @@ export const blogPosts = [
     title: "Uso de Drones en el Monitoreo de Impacto Ambiental",
     excerpt: "Cómo la tecnología de precisión está transformando la rapidez con la que entregamos informes técnicos a nuestros clientes.",
     category: "Innovación",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/watch?v=yypKp-3knQI",
     date: "20 Feb, 2026",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1200",
+    image: "/DronesAmbientales.jpg",
     images: [
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
-      "https://images.unsplash.com/photo-1527977966376-1c8418f9f108"
+      "/DronesAmbientales2.webp",
+      "/DronesAmbientales3.jfif"
     ]
   },
   {
@@ -101,7 +101,7 @@ export const blogPosts = [
     readTime: "9 min",
     image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1200",
     images: [
-      "https://images.unsplash.com/photo-1591193516411-aa9844397364",
+      "/economia-circolare_2400x1160.jpg",
       "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9"
     ]
   }

@@ -29,7 +29,7 @@ export default function BlogPostDetail() {
       {/* HEADER DEL POST */}
       <header className="relative h-[60vh] md:h-[70vh] w-full bg-emerald-200 overflow-hidden">
         <Image 
-          src={post.image || ""} 
+          src={post.image || "/placeholder-blog.webp"} 
           alt={post.title || "Imagen del post"} 
           fill 
           className="object-cover opacity-50 transition-transform duration-1000 hover:scale-105"
@@ -170,7 +170,7 @@ export default function BlogPostDetail() {
           </div>
         </aside>
       </div>
-      
+
       {/* SECCIÓN DE ARTÍCULOS RELACIONADOS */}
         <section className="bg-gray-50 py-24 border-t border-gray-100">
         <div className="container mx-auto px-6">
