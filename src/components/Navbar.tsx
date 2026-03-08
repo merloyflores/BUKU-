@@ -34,11 +34,11 @@ const Navbar = () => {
         </Link>
 
         {/* Contenedor de Acciones (Botón Contacto + Hamburguesa) */}
-        <div className="flex md:order-2 space-x-3 md:space-x-0">
+        <div className="flex lg:order-2 space-x-3 lg:space-x-0">
           {/* Botón CTA: Ahora visible desde 'flex' (móvil) y ajustado en tamaño */}
           <Link 
             href="/contacto" 
-            className={`hidden sm:flex px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold text-sm md:text-base transition-all shadow-md ${
+            className={`hidden sm:flex px-4 lg:px-6 py-2 lg:py-2.5 rounded-full font-bold text-sm lg:text-base transition-all shadow-md ${
               pathname === '/contacto'
                 ? 'bg-bukue-dark text-white' 
                 : 'bg-bukue-primary text-white hover:bg-bukue-dark hover:shadow-bukue-primary/20'
@@ -47,18 +47,18 @@ const Navbar = () => {
             Contáctenos
           </Link>
 
-          {/* Botón Hamburguesa */}
+          {/* Botón Hamburguesa - Ahora se activa en 'lg' para cubrir iPads */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-bukue-dark rounded-lg md:hidden hover:bg-gray-100"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-bukue-dark rounded-lg lg:hidden hover:bg-gray-100"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
-        {/* Menú Desktop y Móvil */}
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1 transition-all`}>
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-semibold border border-gray-100 rounded-2xl bg-white md:bg-transparent md:flex-row md:space-x-2 md:mt-0 md:border-0">
+        {/* Menú Desktop y Móvil - Ajustado a 'lg' para iPad */}
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:flex lg:w-auto lg:order-1 transition-all`}>
+          <ul className="flex flex-col p-4 lg:p-0 mt-4 font-semibold border border-gray-100 rounded-2xl bg-white lg:bg-transparent lg:flex-row lg:space-x-2 lg:mt-0 lg:border-0">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
