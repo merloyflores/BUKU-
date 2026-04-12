@@ -2,7 +2,9 @@
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, Route, Zap } from 'lucide-react';
-import { ArrowRight, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
+import { ArrowRight, Target, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
+import { IoLogoWhatsapp } from "react-icons/io";
+
 
 const AnimatedLeaves = () => {
   const { scrollYProgress } = useScroll();
@@ -51,7 +53,7 @@ export default function Home() {
             En <b className='font-bold'>BUKU<span className="text-shadow-bukue-primary">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
           </p>
           <div className="mt-10 flex gap-4">
-            <a href="#contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
+            <a href="/contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
               Iniciar Proyecto <ArrowRight size={20} />
             </a>
           </div>
@@ -91,92 +93,199 @@ export default function Home() {
         </div>
       </section>
 
-{/* 3. SOLUCIONES INTEGRALES */}
-      <section id="servicios" className="bg-bukue-accent py-24">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-bukue-dark text-4xl md:text-5xl font-bold mb-6">Soluciones Integrales</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-16">
-            Ofrecemos consultoría especializada para garantizar que tu empresa cumpla con las normativas, evite sanciones y optimice su operación.
-          </p>
+      {/* 3. SOLUCIONES INTEGRALES */}
+      <section id="servicios" className="bg-bukue-accent py-24 scroll-mt-24">
+        <div className="container mx-auto px-6">
+          
+        {/* Encabezado de la sección */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto mb-20 px-4"
+        >
+          {/* 1. Badge Estilizado */}
+          <div className="inline-flex items-center gap-2 bg-bukue-accent/50 border border-bukue-primary/20 px-4 py-2 rounded-full mb-6">
+            <Leaf size={16} className="text-bukue-primary animate-pulse" />
+            <span className="text-bukue-primary font-bold tracking-widest uppercase text-xs">
+              Nuestra Experiencia
+            </span>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            
-            {/* 1. Tramitología Ambiental */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <FileText size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Tramitología Ambiental</h3>
-              <p className="text-gray-600 mb-6 grow">Aseguramos el respaldo legal y ambiental de tu proyecto ante instituciones, evitando sanciones y acelerando tus solicitudes para que no se detenga. Incluye:</p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Viabilidad Ambiental para desarrollos de todo tipo.</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Permisos para sistemas de tratamiento de aguas residuales (PTAR).</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Concesiones de aprovechamiento de agua.</li>
-              </ul>
-            </div>
+          {/* 2. Título con Resaltado Dinámico */}
+          <h2 className="text-bukue-dark text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
+            Soluciones <span className="text-bukue-primary">Integrales</span> para su Empresa
+          </h2>
 
-            {/* 2. Soluciones Técnicas Sostenibles */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <Droplets size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Soluciones Técnicas</h3>
-              <p className="text-gray-600 mb-6 grow">Diseño y construcción de sistemas para un manejo eficiente de recursos y tratamiento de efluentes, mitigando riesgos ecológicos. Incluye:</p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Diseño y Construcción de Biojardineras.</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Diseño y Construcción de PTAR (Humedales Artificiales).</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Diseños de Jardines de Polinizadores y Atracción de Aves.</li>
-              </ul>
-            </div>
+          {/* 3. Línea Decorativa y Descripción */}
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-1.5 bg-bukue-primary rounded-full mb-8" />
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl">
+              Brindamos consultoría técnica especializada para transformar sus desafíos 
+              normativos en <span className="font-semibold text-bukue-dark">ventajas competitivas</span> sostenibles.
+            </p>
+          </div>
+        </motion.div>
 
-            {/* 3. Gestión de Residuos */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <Trash2 size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Gestión de Residuos</h3>
-              <p className="text-gray-600 mb-6 grow">Aseguramos un manejo integral y sostenible de los residuos de tu empresa. Incluye:</p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Planes de gestión integral de residuos sólidos.</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Capacitaciones en compostaje y separación de materiales.</li>
-              </ul>
-            </div>
+          {/* Grid de Servicios usando .map() para código limpio */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                id: "tramitologia",
+                icon: <FileText size={28} />,
+                title: "Tramitología",
+                desc: "Contamos con amplia experiencia en tramitología ante instituciones. Simplificá procesos regulatorios, asegurandoquetuempresacumplaconlanormativa vigente, así evita sanciones, acelera procesos de permisosypermiteconcentrarseenelcrecimientodel negocio sin complicaciones administrativas. Además contamosconelrespaldoyexperienciaprofesionalde masde10añosenestosservicios.",
+                items: [
+                  "Viabilidades Ambientales.",
+                  "Permisos para sistemas de tratamiento de AR.",
+                  "Concesiones de aprovechamiento de agua.",
+                  "Planes de gestión integral de residuos sólidos."
+                ]
+              },
+              {
+                id: "certificaciones",
+                icon: <Award size={28} />,
+                title: "Certificaciones",
+                desc: "Obtener certificaciones de calidad y o ambientales a través de consultoría especializada impulsa la confianza del cliente y mejora la eficiencia operativa. Además,teposicionacomounaempresacompetitiva que	cumple	con	estándares	internacionales, generandonuevasoportunidadesdenegocio.",
+                items: [
+                  "Bandera Azul Ecológica.",
+                  "Certificación de sostenibilidad turística.",
+                  "ISO 9001, 14001.",
+                  "Carbono Neutral.",
+                  "Inventario de gases de efecto invernadero."
+                ]
+              },
+              {
+                id: "soluciones",
+                icon: <Droplets size={28} />,
+                title: "Soluciones",
+                desc: "Nuestra guía y experiencia en solucionar problemáticas	ambientales	permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantizalacontinuidaddesuoperación. ",
+                items: [
+                  "Planes de Gestión Integral de Residuos Solidos.",
+                  "Diseño y Construcción de Biojardineras.",
+                  "Diseño y Contrucción de Biojardineras para tratamientos de Aguas Residuales.",
+                  "Diseños de Jardines de Polinizadores y para Atracción de Aves."
+                ]
+              },
+              {
+                id: "educacion",
+                icon: <GraduationCap size={28} />,
+                title: "Educación Ambiental",
+                desc: "La educación ambiental fortalece la responsabilidad social de tu empresa, fomentando una cultura organizacional que entiende y respeta el medio ambiente. Educar al personal reduce riesgos, mejora la eficiencia y fortalece la reputación de la marca.",
+                items: [
+                  "Charlas de sensibilización en temas de recurso hídrico.",
+                  "Capacitaciones en compostaje.",
+                  "Capacitaciones en recuperación de materiales.",
+                  "Charla de Sensibilización en Cambio Climático."
+                ]
+              },
+              {
+                id: "salud",
+                icon: <Building2 size={28} />,
+                title: "Salud Ocupacional",
+                desc: "Invertir en salud ocupacional reduce accidentes y optimiza costos. Creamos entornos laborales seguros y saludables.",
+                items: [
+                  "Conformación de brigadas y comisiones.",
+                  "Planes de emergencia y capacitaciones."
+                ]
+              },
+              {
+                id: "integral",
+                icon: <Target size={28} />, // Asegúrate de importar 'Target' o 'Shield' de lucide-react
+                title: "Gestión Ambiental 360°",
+                desc: "Integramos todos nuestros servicios en una estrategia unificada. Desde la tramitología hasta la salud ocupacional, somos su departamento ambiental externo.",
+                items: [
+                  "Diagnóstico inicial de necesidades.",
+                  "Estrategia corporativa a la medida.",
+                  "Acompañamiento técnico continuo."
+                ]
+              }
+            ].map((servicio, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className={`p-8 rounded-4xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden group border ${
+                  servicio.id === "integral" 
+                    ? "bg-bukue-dark text-white border-bukue-dark hover:shadow-bukue-primary/30" 
+                    : "bg-white text-gray-600 border-gray-100"
+                }`}
+                >
+                {/* Círculo decorativo sutil en la esquina superior */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-bukue-accent/50 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out -z-10" />
 
-            {/* 4. Educación Ambiental */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <GraduationCap size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Educación Ambiental</h3>
-              <p className="text-gray-600 mb-6 grow">Capacitaciones que fortalecen la responsabilidad social corporativa y fomentan una cultura organizacional comprometida con el planeta.</p>
-              <p className="text-gray-600 font-medium text-sm">Transforma tu cultura organizacional y reduce riesgos.</p>
-            </div>
+                {/* Icono animado */}
+                <div className="w-16 h-16 bg-bukue-accent rounded-2xl flex items-center justify-center text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                  {servicio.icon}
+                </div>
 
-            {/* 5. Salud Ocupacional */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <Building2 size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Salud Ocupacional</h3>
-              <p className="text-gray-600 mb-6 grow">Invertir en salud ocupacional reduce accidentes y optimiza costos. Creamos entornos laborales seguros y saludables. Incluye:</p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Conformación de brigadas y comisiones.</li>
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> Planes de emergencia y capacitaciones.</li>
-              </ul>
-            </div>
+                <div className="relative mb-4">
+                  <h3 className={`text-2xl font-black transition-all duration-300 group-hover:pl-4 ${
+                    servicio.id === "integral" 
+                      ? "text-white group-hover:text-gray-300" // Blanco en oscuro, gris en hover
+                      : "text-bukue-dark group-hover:text-bukue-primary" // Normal
+                  }`}>
+                    {servicio.title}
+                  </h3>
+                  
+                  {/* Línea decorativa lateral: Blanca para la tarjeta oscura */}
+                  <div className={`absolute left-0 top-0 h-full w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom ${
+                    servicio.id === "integral" ? "bg-white" : "bg-bukue-primary"
+                  }`} />
+                </div>
+                
+                {/* Párrafo de descripción */}
+                <p className={`mb-6 text-sm leading-relaxed transition-colors ${
+                  servicio.id === "integral" ? "text-gray-200" : "text-gray-600"
+                }`}>
+                  {servicio.desc}
+                </p>
 
-            {/* 6. Certificaciones de Calidad */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group transition-all hover:shadow-lg">
-              <div className="p-3 inline-flex bg-bukue-accent rounded-xl text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-all">
-                <Award size={24} />
-              </div>
-              <h3 className="text-2xl font-bold text-bukue-dark mb-4">Certificaciones</h3>
-              <p className="text-gray-600 mb-6 grow">Consultoría para posicionarte entre los mejores, impulsando la confianza y optimizando tu operación para cumplir con estándares internacionales. Incluye:</p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li className="flex items-center gap-2"><ArrowRight size={14} /> ISO 9001, 14001, Carbono Neutral, Bandera Azul Ecológica.</li>
-              </ul>
-            </div>
+                {/* Ítems de la lista */}
+                <ul className={`space-y-3 text-sm mb-4 transition-colors ${
+                  servicio.id === "integral" ? "text-gray-100" : "text-gray-600"
+                }`}>
+                  {servicio.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <ArrowRight size={16} className={`${
+                        servicio.id === "integral" ? "text-white" : "text-bukue-primary"
+                      } mt-0.5 shrink-0`} /> 
+                      <span className="leading-snug">{item}</span>
+                    </li>
+                  ))}
+                </ul>
 
+                {/* Botón de Acción solo para la tarjeta Integral */}
+                {servicio.id === "integral" && (
+                  <motion.a
+                    href="/contacto"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-4 inline-flex items-center justify-center gap-2 bg-bukue-primary hover:bg-white text-white hover:text-bukue-dark px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-bukue-primary/20 w-full group/btn"
+                  >
+                    Solicitar Consultoría 360°
+                    <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                  </motion.a>
+                )}
+
+                {/* Lógica condicional: Mostrar logos SOLO en la tarjeta de Certificaciones */}
+                {servicio.id === "certificaciones" && (
+                  <div className="mt-auto pt-6 border-t border-gray-50 flex items-center gap-4 justify-start">
+                    <div className="bg-white p-1.5 rounded-xl shadow-sm border border-gray-100 w-14 h-14 relative flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Image src="/BanderaAzul.png" alt="Bandera Azul Ecológica" fill className="object-contain p-2" />
+                    </div>
+                    <div className="bg-white p-1.5 rounded-xl shadow-sm border border-gray-100 w-14 h-14 relative flex items-center justify-center group-hover:scale-110 transition-transform delay-75">
+                      <Image src="/ISO9001.png" alt="ISO 9001" fill className="object-contain p-2" />
+                    </div>
+                    <div className="bg-white p-1.5 rounded-xl shadow-sm border border-gray-100 w-14 h-14 relative flex items-center justify-center group-hover:scale-110 transition-transform delay-150">
+                      <Image src="/co2Neutral.jpg" alt="Carbono Neutral" fill className="object-contain p-1.5 rounded-lg" />
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -219,7 +328,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 bg-white text-bukue-dark hover:bg-bukue-light hover:text-white px-10 py-5 rounded-full font-black text-xl transition-colors shadow-xl"
               >
-                <MessageCircle size={28} className="text-green-500" />
+                <IoLogoWhatsapp />
                 Contactar por WhatsApp
               </motion.a>
               

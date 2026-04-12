@@ -12,8 +12,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Viabilidades Ambientales', href: '/ViabilidadesAmbientales' },
-    { name: 'Salud Ocupacional', href: '/salud-ocupacional' },
+    { name: 'Tramites en Setena', href: '/ViabilidadesAmbientales' },
+    { name: 'Salud Ocupacional', href: '/salud' },
     { name: 'Certificaciones', href: '/certificaciones' },
     { name: 'Blog', href: '/blog' },
   ];
@@ -47,18 +47,18 @@ const Navbar = () => {
             Contáctenos
           </Link>
 
-          {/* Botón Hamburguesa - Ahora se activa en 'lg' para cubrir iPads */}
+          {/* Botón Hamburguesa*/}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-bukue-dark rounded-lg lg:hidden hover:bg-gray-100"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-bukue-dark rounded-lg min-[1200px]:hidden hover:bg-gray-100"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Menú Desktop y Móvil - Ajustado a 'lg' para iPad */}
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:flex lg:w-auto lg:order-1 transition-all`}>
-          <ul className="flex flex-col p-4 lg:p-0 mt-4 font-semibold border border-gray-100 rounded-2xl bg-white lg:bg-transparent lg:flex-row lg:space-x-2 lg:mt-0 lg:border-0">
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full min-[1200px]:flex min-[1200px]:w-auto min-[1200px]:order-1 transition-all`}>
+          <ul className="flex flex-col p-4 min-[1200px]:p-0 mt-4 font-semibold border border-gray-100 rounded-2xl bg-white min-[1200px]:bg-transparent min-[1200px]:flex-row min-[1200px]:space-x-2 min-[1200px]:mt-0 min-[1200px]:border-0">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
