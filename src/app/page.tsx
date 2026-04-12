@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MessageCircle, Route, Zap } from 'lucide-react';
+import { Route, Zap } from 'lucide-react';
 import { ArrowRight, Target, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
 import { IoLogoWhatsapp } from "react-icons/io";
 
@@ -17,7 +17,7 @@ const AnimatedLeaves = () => {
     >
       <div className="relative w-full h-64">
         <Image
-          src="/HojasSuperiores_SinFondo.png" // Usando tu imagen cargada
+          src="/HojasSuperiores_SinFondo.png"
           alt="Hojas decorativas"
           fill
           className="object-contain object-top opacity-80"
@@ -30,8 +30,8 @@ const AnimatedLeaves = () => {
 export default function Home() {
   return (
     <div className="flex flex-col gap-20 bg-white">
-      {/* HERO SECTION - Usando tus molinos eólicos */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+    {/* HERO SECTION - Usando tus molinos eólicos */}
+      <section className="relative h-[85vh] md:h-[90vh] flex items-center overflow-hidden">
         <Image 
           src="/HojasFondo2.jpg" 
           alt="Energía Eólica Costa Rica" 
@@ -42,20 +42,57 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay para lectura */}
         
         <div className="container mx-auto px-6 relative z-20 text-white">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold max-w-4xl leading-tight"
-          >
-            Sostenibilidad que genera <span className="text-bukue-light">Rentabilidad</span>
-          </motion.h1>
-          <p className="mt-6 text-xl text-gray-100 max-w-2xl font-light">
-            En <b className='font-bold'>BUKU<span className="text-shadow-bukue-primary">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
-          </p>
-          <div className="mt-10 flex gap-4">
-            <a href="/contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
-              Iniciar Proyecto <ArrowRight size={20} />
-            </a>
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            
+            {/* LADO IZQUIERDO: TEXTOS */}
+            <div>
+              <motion.h1 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-5xl md:text-7xl font-bold leading-tight"
+              >
+                Sostenibilidad que genera <span className="text-bukue-light">Rentabilidad</span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-6 text-xl text-gray-100 max-w-xl font-light"
+              >
+                En <b className='font-bold'>BUKU<span className="text-shadow-bukue-primary">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
+              </motion.p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="mt-10 flex gap-4"
+              >
+                <a href="/contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
+                  Iniciar Proyecto <ArrowRight size={20} />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* LADO DERECHO: LOGO */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="hidden lg:flex justify-end"
+            >
+              <Image 
+                src="/LOGO_BUKUE_sin fondo.png"
+                alt="Bukuë Logo"
+                width={350} 
+                height={150}
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
+            </motion.div>
+
           </div>
         </div>
       </section>
@@ -322,7 +359,7 @@ export default function Home() {
               </p>
 
               <motion.a
-                href="https://wa.me/50688017441" // Enlace directo a tu número
+                href="https://wa.me/50688017441"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

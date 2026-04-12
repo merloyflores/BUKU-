@@ -1,9 +1,10 @@
 "use client";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { ImWhatsapp } from "react-icons/im";
 import { Settings, ShieldAlert, Leaf, CheckCircle2, ArrowUpRight, ShieldCheck, ChevronDown, Zap, Globe2, TrendingUp, ClipboardCheck, Settings2, ArrowRight, Mail, Phone, Search, Loader2 } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { sendEmail } from '../../../action';
+import { sendEmail } from '../../action';
 
 const pilares = [
   {
@@ -427,7 +428,7 @@ export default function HeroCertificaciones() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[4rem] p-8 md:p-16">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-top">
               
               {/* Texto de Invitación */}
               <motion.div
@@ -464,6 +465,22 @@ export default function HeroCertificaciones() {
                       <p className="text-lg font-medium">+(506) 8801-7441</p>
                     </div>
                   </div>
+                  <a 
+                    href="https://wa.me/50688017441?text=Hola!%20Me%20gustaría%20solicitar%20información%20sobre%20las%20certificaciones%20y%20asesorías."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 text-white group hover:bg-white/5 p-2 -ml-2 rounded-3xl transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/10 group-hover:scale-110 transition-transform">
+                      <ImWhatsapp size={22} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-green-500 uppercase font-bold tracking-widest">WhatsApp</p>
+                      <p className="text-lg font-medium flex items-center gap-2">
+                        Asesoría inmediata <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </p>
+                    </div>
+                  </a>
                 </div>
               </motion.div>
 
@@ -483,21 +500,21 @@ export default function HeroCertificaciones() {
                   className="space-y-4"
                 >
                   <input 
-                    name="nombre" // IMPORTANTE: name para FormData
+                    name="nombre" 
                     type="text" 
                     required
                     placeholder="Nombre completo" 
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors"
                   />
                   <input 
-                    name="email" // IMPORTANTE
+                    name="email" 
                     type="email" 
                     required
                     placeholder="Correo corporativo" 
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors"
                   />
                   <select 
-                    name="interes" // IMPORTANTE
+                    name="interes" 
                     title="Seleccione su área de interés"
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors text-gray-400"
                   >
@@ -505,6 +522,14 @@ export default function HeroCertificaciones() {
                     <option value="Salud Ocupacional">Interés: Salud Ocupacional (TST)</option>
                     <option value="Sostenibilidad">Interés: Sostenibilidad / Bandera Azul</option>
                   </select>
+
+                  {/* CAMPO DE MENSAJE AÑADIDO */}
+                  <textarea 
+                    name="mensaje"
+                    rows={4}
+                    placeholder="Cuéntenos un poco sobre su empresa o necesidad específica..."
+                    className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors resize-none"
+                  ></textarea>
                   
                   <button 
                     disabled={isPending}

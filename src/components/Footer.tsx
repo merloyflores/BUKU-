@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { ImWhatsapp } from "react-icons/im";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,6 +39,14 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <Instagram size={20} />
+              </Link>
+              <Link 
+                href="https://wa.me/50688017441"  
+                className="p-2 bg-white/5 rounded-full hover:bg-bukue-light transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImWhatsapp size={20} />
               </Link>
             </div>
           </div>
