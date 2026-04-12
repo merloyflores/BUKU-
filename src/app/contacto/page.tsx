@@ -43,7 +43,7 @@ export default function Contacto() {
             <div className="space-y-8 ">
               <div className="bg-bukue-accent p-6 rounded-2xl border border-bukue-primary/10 shadow-xl">
                 <h3 className="text-xl font-bold text-bukue-dark mb-6">Información Directa</h3>
-                <div className="space-y-6">
+                <div className="space-y-6 break-all">
                   <div className="flex items-center gap-4 text-gray-700">
                     <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
                       <Phone size={20} />
@@ -51,10 +51,14 @@ export default function Contacto() {
                     <span>(506) 8801-7441</span>
                   </div>
                   <div className="flex items-center gap-4 text-gray-700">
-                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
                       <Mail size={20} />
                     </div>
-                    <span>admin@bukuecr.com</span>
+                    
+                    {/* Ajustamos el tamaño del texto y forzamos el quiebre si no cabe */}
+                    <span className="text-sm md:text-base break-all md:break-normal truncate hover:text-clip">
+                      admin@bukuecr.com
+                    </span>
                   </div>
                   <div className="flex items-center gap-4 text-gray-700">
                     <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">

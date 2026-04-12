@@ -30,7 +30,7 @@ const AnimatedLeaves = () => {
 export default function Home() {
   return (
     <div className="flex flex-col gap-20 bg-white">
-    {/* HERO SECTION - Usando tus molinos eólicos */}
+    {/* 1. HERO */}
       <section className="relative h-[85vh] md:h-[90vh] flex items-center overflow-hidden">
         <Image 
           src="/HojasFondo2.jpg" 
@@ -83,7 +83,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="hidden lg:flex justify-end"
             >
-              <Image 
+            <Image 
                 src="/LOGO_BUKUE_sin fondo.png"
                 alt="Bukuë Logo"
                 width={350} 
