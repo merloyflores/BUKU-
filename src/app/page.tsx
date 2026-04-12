@@ -172,7 +172,7 @@ export default function Home() {
                 id: "tramitologia",
                 icon: <FileText size={28} />,
                 title: "Tramitología",
-                desc: "Contamos con amplia experiencia en tramitología ante instituciones. Simplificá procesos regulatorios, asegurandoquetuempresacumplaconlanormativa vigente, así evita sanciones, acelera procesos de permisosypermiteconcentrarseenelcrecimientodel negocio sin complicaciones administrativas. Además contamosconelrespaldoyexperienciaprofesionalde masde10añosenestosservicios.",
+                desc: "Contamos con amplia experiencia en tramitología ante instituciones. Simplificá procesos regulatorios, asegurando que tu empresa cumpla con la normativa vigente, así evita sanciones, acelera procesos de permisos y permite concentrarse en el crecimiento del negocio sin complicaciones administrativas. Además contamos con el respaldo y experiencia profesional de mas de 10 años en estos servicios.",
                 items: [
                   "Viabilidades Ambientales.",
                   "Permisos para sistemas de tratamiento de AR.",
@@ -184,7 +184,7 @@ export default function Home() {
                 id: "certificaciones",
                 icon: <Award size={28} />,
                 title: "Certificaciones",
-                desc: "Obtener certificaciones de calidad y o ambientales a través de consultoría especializada impulsa la confianza del cliente y mejora la eficiencia operativa. Además,teposicionacomounaempresacompetitiva que	cumple	con	estándares	internacionales, generandonuevasoportunidadesdenegocio.",
+                desc: "Obtener certificaciones de calidad y o ambientales a través de consultoría especializada impulsa la confianza del cliente y mejora la eficiencia operativa. Además,te posiciona como una empresa competitiva que	cumple	con	estándares	internacionales, generando nuevas oportunidades de negocio.",
                 items: [
                   "Bandera Azul Ecológica.",
                   "Certificación de sostenibilidad turística.",
@@ -197,7 +197,7 @@ export default function Home() {
                 id: "soluciones",
                 icon: <Droplets size={28} />,
                 title: "Soluciones",
-                desc: "Nuestra guía y experiencia en solucionar problemáticas	ambientales	permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantizalacontinuidaddesuoperación. ",
+                desc: "Nuestra guía y experiencia en solucionar problemáticas	ambientales	permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantiza la continuidad de su operación. ",
                 items: [
                   "Planes de Gestión Integral de Residuos Solidos.",
                   "Diseño y Construcción de Biojardineras.",
