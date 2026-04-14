@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Users, Target, Lightbulb, ArrowRight, BookOpen, Microscope } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Nosotros() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return (
     <div className="bg-white">
       {/* SECCIÓN 1 - HERO DE SECCIÓN */}
-      <section className="relative h-[80vh] flex items-center bg-bukue-dark overflow-hidden">
+      <section className="relative min-h-[80vh] py-20 flex items-center bg-bukue-dark overflow-hidden">
         {/* Imagen de fondo con overlay degradado para mejor lectura */}
         <Image 
           src="/HojasFondo3.jpg" 
@@ -159,7 +161,7 @@ export default function Nosotros() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
             {[
               {
                 name: "Leonel Lépiz López",
@@ -188,23 +190,31 @@ export default function Nosotros() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.2, duration: 0.6 }}
-                className="group relative"
+                viewport={{ once: true }}
+                // DETALLE CLAVE: Manejo de clics para tablets
+                onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
+                onMouseEnter={() => setActiveIndex(idx)}
+                onMouseLeave={() => setActiveIndex(null)}
+                className="group relative cursor-pointer"
               >
-                {/* Contenedor Principal con Sombra Pro */}
-                <div className="relative h-137.5 w-full rounded-2xl overflow-hidden bg-bukue-dark shadow-2xl transition-all duration-500 group-hover:shadow-bukue-primary/20">
+                {/* Contenedor Principal */}
+                <div className={`relative h-137.5 w-full rounded-2xl overflow-hidden bg-bukue-dark shadow-2xl transition-all duration-500 
+                  ${activeIndex === idx ? 'shadow-bukue-primary/20' : ''} group-hover:shadow-bukue-primary/20`}>
                   
-                  {/* Imagen con Zoom y Color al Hover */}
+                  {/* Imagen */}
                   <Image 
                     src={member.image} 
                     alt={member.name} 
                     fill 
-                    className="object-cover object-top grayscale-0 md:grayscale group-hover:grayscale-0 md:group-hover:scale-110 transition-all duration-700 ease-in-out opacity-100 md:opacity-80 group-hover:opacity-100"
+                    className={`object-cover object-top transition-all duration-700 ease-in-out
+                      ${activeIndex === idx ? 'grayscale-0 scale-110 opacity-100' : 'grayscale md:grayscale opacity-80 md:opacity-80'} 
+                      group-hover:grayscale-0 md:group-hover:scale-110 group-hover:opacity-100`}
                   />
-                  {/* Overlay de Gradiente para legibilidad */}
+
                   <div className="absolute inset-0 bg-linear-to-t from-bukue-dark via-transparent to-transparent opacity-90" />
 
-                  {/* Tarjeta de Información (Efecto Glass) */}
-                  <div className="absolute bottom-4 left-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl transform translate-y-0 group-hover:translate-y-0 transition-transform duration-500">
+                  {/* Tarjeta de Información */}
+                  <div className="absolute bottom-4 left-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl transition-transform duration-500">
                     
                     <div className="flex justify-between items-start mb-2">
                       <div>
@@ -215,19 +225,21 @@ export default function Nosotros() {
                           {member.name}
                         </h4>
                       </div>
-                      {/* Icono decorativo que gira al hover */}
-                      <div className="bg-bukue-primary p-2 rounded-full text-white group-hover:rotate-360 transition-transform duration-700">
+                      {/* Icono que gira */}
+                      <div className={`bg-bukue-primary p-2 rounded-full text-white transition-transform duration-700 
+                        ${activeIndex === idx ? 'rotate-360' : ''} group-hover:rotate-360`}>
                         <Target size={16} />
                       </div>
                     </div>
 
-                    {/* Specialty con estilo de tag */}
                     <p className="text-bukue-light/90 font-medium text-xs mb-3 italic">
                       {member.specialty}
                     </p>
 
-                    {/* Descripción que aparece en el hover */}
-                    <div className="h-0 group-hover:h-20 opacity-0 group-hover:opacity-100 overflow-hidden transition-all duration-500 ">
+                    {/* Descripción expandible */}
+                    <div className={`transition-all duration-500 overflow-hidden 
+                      ${activeIndex === idx ? 'h-20 opacity-100' : 'h-0 opacity-0'} 
+                      group-hover:h-20 group-hover:opacity-100`}>
                       <p className="text-gray-300 text-sm leading-relaxed border-t border-white/10 pt-3">
                         {member.desc}
                       </p>
@@ -235,9 +247,6 @@ export default function Nosotros() {
 
                   </div>
                 </div>
-
-                {/* Elemento decorativo exterior (el círculo que mencionabas, pero más sutil) */}
-                <div className="absolute -z-10 top-10 -right-4 w-32 h-32 bg-bukue-accent/20 rounded-full blur-2xl group-hover:bg-bukue-primary/20 transition-colors duration-500" />
               </motion.div>
             ))}
           </div>

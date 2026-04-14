@@ -1,10 +1,12 @@
 "use client";
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ImWhatsapp } from "react-icons/im";
-import { Settings, ShieldAlert, Leaf, CheckCircle2, ArrowUpRight, ShieldCheck, ChevronDown, Zap, Globe2, TrendingUp, ClipboardCheck, Settings2, ArrowRight, Mail, Phone, Search, Loader2 } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { Settings, ShieldAlert, Leaf, CheckCircle2, ArrowUpRight, ShieldCheck, ChevronDown, Zap, Globe2, TrendingUp, Settings2, ArrowRight, Mail, Phone, Search, Loader2 } from 'lucide-react';
+import { SetStateAction, useRef, useState } from 'react';
 import { sendEmail } from '../../action';
+import ServiceModal from '@/components/ServiceModal';
 
 const pilares = [
   {
@@ -12,8 +14,9 @@ const pilares = [
     icon: <Settings size={32} />,
     title: "Sistemas de Gestión ISO",
     subtitle: "Calidad y Eficiencia",
+    content: "La estandarización no es un destino, es una estrategia de supervivencia en mercados globales. Implementar las normas ISO 9001 y 14001 permite a las empresas costarricenses no solo ordenar su casa, sino hablar el mismo idioma técnico que sus clientes internacionales, reduciendo costos por ineficiencia hasta en un 20% anual.",
     desc: "Acompañamiento integral para la implementación y auditoría de normas internacionales que optimizan su operación.",
-    items: ["ISO 9001: Gestión de Calidad", "ISO 14001: Gestión Ambiental", "ISO 45001: Salud y Seguridad"],
+    items: ["ISO 9001: Gestión de Calidad", "ISO 14001: Gestión Ambiental"],
     color: "from-emerald-500/20 to-transparent"
   },
   {
@@ -21,6 +24,7 @@ const pilares = [
     icon: <ShieldAlert size={32} />,
     title: "Salud y Seguridad (TST)",
     subtitle: "Cumplimiento Legal",
+    content: "Más allá del cumplimiento punitivo ante el Ministerio de Salud o el MTSS, la gestión preventiva del riesgo laboral es el activo más valioso de una organización. Un Plan de Emergencia bien estructurado y brigadas capacitadas no son solo requisitos legales; son la garantía de continuidad del negocio ante imprevistos, protegiendo el capital humano y la reputación corporativa.",
     desc: "Garantizamos entornos laborales seguros cumpliendo con toda la normativa del Ministerio de Salud y el MTSS.",
     items: ["Planes de Emergencia", "Conformación de Brigadas", "Auditorías de Riesgos"],
     color: "from-emerald-500/20 to-transparent"
@@ -30,8 +34,9 @@ const pilares = [
     icon: <Leaf size={32} />,
     title: "Sellos de Sostenibilidad",
     subtitle: "Diferenciación Verde",
+    content: "En una economía que premia la transparencia, los galardones como Bandera Azul Ecológica y Carbono Neutralidad han dejado de ser opcionales para convertirse en potentes herramientas de diferenciación. Estas certificaciones validan ante el mercado que el compromiso ambiental de la empresa es medible, real y alineado con las metas país de descarbonización.",
     desc: "Posicionamos su marca mediante galardones que certifican su compromiso real con el medio ambiente.",
-    items: ["Bandera Azul Ecológica", "Carbono Neutralidad", "Certificación CST"],
+    items: ["Bandera Azul Ecológica", "Carbono Neutralidad"],
     color: "from-emerald-500/20 to-transparent"
   }
 ];
@@ -84,7 +89,18 @@ const metodologiaPro = [
   }
 ];
 
+
+
 export default function HeroCertificaciones() {
+  // 1. Estados para controlar el modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeService, setActiveService] = useState(null);
+
+  // 2. Función que dispara la apertura
+  const handleOpenModal = (service: any) => {
+    setActiveService(service);
+    setIsModalOpen(true);
+  };
   const formRef = useRef<HTMLFormElement>(null);
     const [isPending, setIsPending] = useState(false);
 
@@ -246,21 +262,32 @@ export default function HeroCertificaciones() {
 
                 {/* Botón sutil de "Saber más" */}
                 <div className="mt-auto pt-10 relative z-10">
-                  <button className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-bukue-dark group-hover:gap-4 transition-all">
+                  <Link 
+                    href={`#${pilar.id}`} 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleOpenModal(pilar); // Pasamos el objeto 'pilar' completo
+                    }}
+                    className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-bukue-dark group-hover:gap-4 transition-all"
+                  >
                     Detalles del servicio <ArrowUpRight size={16} className="text-bukue-primary" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
+        {/* Colócalo aquí, fuera del contenedor del grid */}
+        <ServiceModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          service={activeService} 
+        />
       </section>
 
       {/* 3. Sección "Por qué certificar su empresa con Bukuë" */}
       <section className="py-24 bg-bukue-accent/30 relative overflow-hidden">
-        {/* Elemento decorativo de fondo */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-150 h-150 bg-bukue-primary/5 rounded-full blur-3xl -z-10" />
-
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             
@@ -336,12 +363,6 @@ export default function HeroCertificaciones() {
           
           {/* Cabecera con Badge y Título */}
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24">
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm mb-6">
-              <Zap size={14} className="text-bukue-primary" />
-              <span className="text-bukue-dark font-bold uppercase tracking-widest text-[10px]">
-                Método Bukuë 360°
-              </span>
-            </div>
             <h2 className="text-bukue-dark text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
               Su ruta crítica hacia la <br />
               <span className="text-bukue-primary italic">Excelencia Normativa</span>
@@ -554,8 +575,10 @@ export default function HeroCertificaciones() {
             </div>
           </div>
         </div>
-      </section>     
+      </section>
+   
     </main>
 
+    
   );
 }

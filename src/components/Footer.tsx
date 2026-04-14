@@ -58,7 +58,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li><Link href="/" className="hover:text-white flex items-center gap-2">Inicio</Link></li>
-              <li><Link href="#nosotros" className="hover:text-white flex items-center gap-2">Sobre Nosotros</Link></li>
+              <li><Link href="/nosotros" className="hover:text-white flex items-center gap-2">Sobre Nosotros</Link></li>
               <li><Link href="#servicios" className="hover:text-white flex items-center gap-2">Soluciones</Link></li>
               <li><Link href="https://wa.me/50688017441" className="hover:text-white flex items-center gap-2 tracking-wide">Cita de Valoración</Link></li>
             </ul>
@@ -70,10 +70,10 @@ const Footer = () => {
               Servicios
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li className="hover:text-white cursor-pointer transition-colors">Tramitología Ambiental</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Gestión de Residuos</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Salud Ocupacional</li>
-              <li className="hover:text-white cursor-pointer transition-colors">Certificaciones ISO</li>
+              <li><Link href="/tramitologia-ambiental" className="hover:text-white cursor-pointer transition-colors">Tramitología Ambiental</Link></li>
+              <li><Link href="/gestion-residuos" className="hover:text-white cursor-pointer transition-colors">Gestión de Residuos</Link></li>
+              <li><Link href="/salud" className="hover:text-white cursor-pointer transition-colors">Salud Ocupacional</Link></li>
+              <li><Link href="/certificaciones" className="hover:text-white cursor-pointer transition-colors">Certificaciones ISO</Link></li>
             </ul>
           </div>
 

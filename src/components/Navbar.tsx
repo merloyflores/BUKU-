@@ -21,8 +21,9 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 top-0 border-b border-white/10 backdrop-blur-md bg-white/80">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+        {/* Logo de la empresa */}
         <Link href="/" className="flex items-center group transition-transform hover:scale-105">
-          <div className="relative w-32 h-12 md:w-40 md:h-14">
+          <div className="relative w-32 h-12 md:w-60 md:h-18">
             <Image 
               src="/LOGO_BUKUE_sin fondo.png" 
               alt="BUKUË Consultoría Ambiental" 
