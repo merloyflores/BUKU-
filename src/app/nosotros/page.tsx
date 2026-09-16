@@ -157,7 +157,7 @@ export default function Nosotros() {
               El equipo detrás de su <span className="text-bukue-primary">cumplimiento ambiental.</span>
             </h2>
             <p className="text-gray-500 mt-6 text-lg">
-              Contamos con profesionales altamente capacitados en Gestión Ambiental, dedicados a transformar retos normativos en oportunidades de crecimiento.
+              Somos profesionales especializados en sostenibilidad, comprometidos con transformar los desafíos normativos y ambientales en oportunidades de crecimiento, innovación y mejora para las organizaciones.
             </p>
           </div>
 
@@ -166,7 +166,7 @@ export default function Nosotros() {
               {
                 name: "Leonel Lépiz López",
                 role: "Lic. Gestión Ambiental",
-                image: "/LeonelPerfil3.png",
+                image: "/LeonelPerfil5.png",
                 specialty: "Estratega en Viabilidades",
                 desc: "Especialista en la coordinación técnica de proyectos de alto impacto nacional."
               },
@@ -178,7 +178,7 @@ export default function Nosotros() {
                 desc: "Experto en la optimización de procesos y cumplimiento técnico institucional."
               },
               {
-                name: "Danny Perfil", // Ajustar apellido si lo tienes
+                name: "Danny Zamora Chacón", // Ajustar apellido si lo tienes
                 role: "Consultor Ambiental",
                 image: "/DannyPerfil2.png",
                 specialty: "Gestión de Campo",
@@ -271,7 +271,7 @@ export default function Nosotros() {
             {/* Imagen representativa de Educación */}
             <div className="lg:w-1/2 relative h-112.5 w-full rounded-[3rem] overflow-hidden shadow-2xl">
               <Image 
-                src="/EducacionAmbiental.jpg" 
+                src="/EducacionAmbiental.png" 
                 alt="Talleres de Educación Ambiental" 
                 fill 
                 className="object-cover"
@@ -302,11 +302,11 @@ export default function Nosotros() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3 text-white/80">
                   <div className="w-1.5 h-1.5 bg-bukue-primary rounded-full" />
-                  <span className="text-sm">Charlas de sensibilización</span>
+                  <span className="text-sm">Sensibilización en la cultura ambiental de su empresa.</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/80">
                   <div className="w-1.5 h-1.5 bg-bukue-primary rounded-full" />
-                  <span className="text-sm">Gestión de Cambio Climático</span>
+                  <span className="text-sm">Identificación de Riesgos y Oportunidades Ambientales.</span>
                 </div>
               </div>
               <Link href="/blog">

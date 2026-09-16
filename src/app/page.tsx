@@ -98,34 +98,64 @@ export default function Home() {
       </section>
 
       {/* 2. PROPUESTA DE VALOR */}
-      <section id="nosotros" className="container mx-auto px-4 bg-white">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-bukue-dark text-4xl font-bold mb-6">Tu Aliado Estratégico en Servicios Ambientales</h2>
-            <p className="text-gray-600 text-lg mb-4">
-              En BUKUË, entendemos que las empresas deben equilibrar sus responsabilidades ecológicas con sus objetivos económicos. 
-            </p>
-            <p className="text-gray-600 text-lg">
-              Trabajamos mano a mano para desarrollar soluciones personalizadas que minimizan el impacto ambiental mientras maximizan la rentabilidad de tu negocio.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
-              <Leaf className="text-bukue-primary mb-4" size={32} />
-              <h3 className="font-bold text-bukue-dark">Ecología</h3>
+      <section id="nosotros" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Columna Izquierda: Texto */}
+            <div className="flex flex-col justify-center space-y-6">
+              <h2 className="text-bukue-dark text-3xl md:text-4xl font-bold leading-tight">
+                Tu Aliado Estratégico en Servicios Ambientales
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                En <strong className="font-bold text-bukue-dark">BUKUË</strong>, creemos que la sostenibilidad y el crecimiento empresarial pueden ir de la mano. Por eso, trabajamos junto a cada empresa para diseñar soluciones personalizadas que reduzcan su impacto ambiental, optimicen el uso de sus recursos y, al mismo tiempo, impulsen su rentabilidad.
+              </p>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                Nuestro objetivo es transformar los desafíos ambientales en oportunidades de innovación y crecimiento, ayudando a las empresas a construir un futuro más sostenible, eficiente y competitivo.
+              </p>
             </div>
-            <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
-              <BarChart3 className="text-bukue-primary mb-4" size={32} />
-              <h3 className="font-bold text-bukue-dark">Economía</h3>
+
+            {/* Columna Derecha: Grilla Simétrica de Tarjetas */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              {/* Tarjeta 1 */}
+              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+                <Leaf className="text-bukue-primary mb-4 shrink-0" size={32} />
+                <div>
+                  <h3 className="font-bold text-bukue-dark text-lg leading-snug">Sostenibilidad</h3>
+                  <p className="text-xs text-gray-500 mt-1 font-medium">Gobernanza, Social y Ambiental</p>
+                </div>
+              </div>
+
+              {/* Tarjeta 2 */}
+              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+                <BarChart3 className="text-bukue-primary mb-4 shrink-0" size={32} />
+                <div>
+                  <h3 className="font-bold text-bukue-dark text-lg leading-snug">Economía</h3>
+                  <p className="text-xs text-gray-500 mt-1 font-medium">Optimización de recursos</p>
+                </div>
+              </div>
+
+              {/* Tarjeta 3 */}
+              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+                <ShieldCheck className="text-bukue-primary mb-4 shrink-0" size={32} />
+                <div>
+                  <h3 className="font-bold text-bukue-dark text-lg leading-snug">Cumplimiento</h3>
+                  <p className="text-xs text-gray-500 mt-1 font-medium">Normativa y legalidad</p>
+                </div>
+              </div>
+
+              {/* Tarjeta 4 */}
+              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+                <Route className="text-bukue-primary mb-4 shrink-0" size={32} /> 
+                <div>
+                  <h3 className="font-bold text-bukue-dark text-lg leading-snug">Estrategia</h3>
+                  <p className="text-xs text-gray-500 mt-1 font-medium">Planes a la medida</p>
+                </div>
+              </div>
+
             </div>
-            <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
-              <ShieldCheck className="text-bukue-primary mb-4" size={32} />
-              <h3 className="font-bold text-bukue-dark">Cumplimiento</h3>
-            </div>
-            <div className="p-6 bg-bukue-accent rounded-2xl border border-bukue-primary/10">
-              <Route className="text-bukue-primary mb-4" size={32} /> 
-              <h3 className="font-bold text-bukue-dark">Estrategía</h3>
-            </div>
+
           </div>
         </div>
       </section>
@@ -175,7 +205,8 @@ export default function Home() {
                 desc: "Contamos con amplia experiencia en tramitología ante instituciones. Simplificá procesos regulatorios, asegurando que tu empresa cumpla con la normativa vigente, así evita sanciones, acelera procesos de permisos y permite concentrarse en el crecimiento del negocio sin complicaciones administrativas. Además contamos con el respaldo y experiencia profesional de mas de 10 años en estos servicios.",
                 items: [
                   "Viabilidades Ambientales.",
-                  "Permisos para sistemas de tratamiento de AR.",
+                  "Permisos para sistemas de tratamiento de Aguas Residuales.",
+                  "Presentación de Reportes Operacionales ante el Ministerio de Salud.",
                   "Concesiones de aprovechamiento de agua.",
                   "Planes de gestión integral de residuos sólidos."
                 ]
@@ -189,6 +220,7 @@ export default function Home() {
                   "Bandera Azul Ecológica.",
                   "Certificación de sostenibilidad turística.",
                   "ISO 9001, 14001.",
+                  "ISO 50 001.",
                   "Carbono Neutral.",
                   "Inventario de gases de efecto invernadero."
                 ]
@@ -197,11 +229,13 @@ export default function Home() {
                 id: "soluciones",
                 icon: <Droplets size={28} />,
                 title: "Soluciones",
-                desc: "Nuestra guía y experiencia en solucionar problemáticas	ambientales	permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantiza la continuidad de su operación. ",
+                desc: "Nuestra guía y experiencia en solucionar problemáticas ambientales permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantiza la continuidad de su operación.",
                 items: [
-                  "Planes de Gestión Integral de Residuos Solidos.",
-                  "Diseño y Construcción de Biojardineras.",
-                  "Diseño y Contrucción de Biojardineras para tratamientos de Aguas Residuales.",
+                  "Planes de Gestión Integral de Residuos Sólidos.",
+                  "Diseño de Sistemas de Tratamiento de Aguas Residuales.",
+                  "Asesoría en la operación de Sistemas de Tratamiento de Aguas Residuales.",
+                  "Estudios de Impacto Ambiental para permisos de Zonas Francas ante PROCOMER.",
+                  "Planes de Gestión Ambiental.",
                   "Diseños de Jardines de Polinizadores y para Atracción de Aves."
                 ]
               },
@@ -211,6 +245,7 @@ export default function Home() {
                 title: "Educación Ambiental",
                 desc: "La educación ambiental fortalece la responsabilidad social de tu empresa, fomentando una cultura organizacional que entiende y respeta el medio ambiente. Educar al personal reduce riesgos, mejora la eficiencia y fortalece la reputación de la marca.",
                 items: [
+                  "Programas educativos en ambiente y sostenibilidad para escuelas, colegios y centros de capacitación (talleres, actividades prácticas y experiencias educativas).",
                   "Charlas de sensibilización en temas de recurso hídrico.",
                   "Capacitaciones en compostaje.",
                   "Capacitaciones en recuperación de materiales.",
@@ -223,8 +258,9 @@ export default function Home() {
                 title: "Salud Ocupacional",
                 desc: "Invertir en salud ocupacional reduce accidentes y optimiza costos. Creamos entornos laborales seguros y saludables.",
                 items: [
-                  "Conformación de brigadas y comisiones.",
-                  "Planes de emergencia y capacitaciones."
+                  "Planes de Emergencia.",
+                  "Planes de Salud Ocupacional.",
+                  "Plan de confinamiento de Ruido."
                 ]
               },
               {
@@ -233,9 +269,7 @@ export default function Home() {
                 title: "Gestión Ambiental 360°",
                 desc: "Integramos todos nuestros servicios en una estrategia unificada. Desde la tramitología hasta la salud ocupacional, somos su departamento ambiental externo.",
                 items: [
-                  "Diagnóstico inicial de necesidades.",
-                  "Estrategia corporativa a la medida.",
-                  "Acompañamiento técnico continuo."
+                  "Valoración y Diagnóstico de condiciones ambientales para compra de propiedades (Análisis de restricciones)."
                 ]
               }
             ].map((servicio, idx) => (

@@ -3,117 +3,225 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
   }, [isOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
+
+  const serviceSubLinks = [
+    { name: 'Trámites en Setena', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y gestión ambiental ante Setena' },
+    { name: 'Salud Ocupacional', href: '/salud', desc: 'Programas de salud y seguridad laboral' },
+    { name: 'Certificaciones', href: '/certificaciones', desc: 'Acompañamiento en normas y certificaciones' },
+  ];
 
   const navLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Tramites en Setena', href: '/ViabilidadesAmbientales' },
-    { name: 'Salud Ocupacional', href: '/salud' },
-    { name: 'Certificaciones', href: '/certificaciones' },
-    { name: 'Blog', href: '/blog' },
   ];
+
+  const isServiceActive = serviceSubLinks.some((sub) => pathname === sub.href);
+
+  const linkClasses = (active: boolean) => `
+    relative py-2 text-base min-[1330px]:text-lg font-medium tracking-normal transition-colors
+    ${active ? 'text-[#1F3328]' : 'text-[#4A4A42] hover:text-[#1F3328]'}
+    after:content-[''] after:absolute after:left-1/2 after:-bottom-0.5 after:h-[2px]
+    after:bg-[#3D6B4C] after:transition-all after:duration-300 after:-translate-x-1/2
+    ${active ? 'after:w-6' : 'after:w-0 hover:after:w-6'}
+  `;
 
   return (
     <>
-      {/* CAPA BLUR (OVERLAY) - Ajustado a 1330px */}
-      <div 
-        className={`fixed inset-0 z-40 bg-bukue-dark/10 backdrop-blur-md transition-all duration-500 min-[1330px]:hidden ${
+      {/* Overlay para móvil */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#1F3328]/40 backdrop-blur-sm transition-opacity duration-300 min-[1330px]:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={() => setIsOpen(false)}
       />
 
-      <nav className="fixed w-full z-50 top-0 border-b border-white/10 backdrop-blur-md bg-white/90">
-        <div className="max-w-7xl flex items-center justify-between mx-auto p-4 relative">
-          
-          {/* Logo */}
-          <Link href="/" className="flex items-center group transition-transform hover:scale-105 z-50">
-            <div className="relative w-32 h-12 md:w-60 md:h-18">
-              <Image 
-                src="/LOGO_BUKUE_sin fondo.png" 
-                alt="BUKUË Consultoría Ambiental" 
+      <nav
+        className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#EDEBE2] shadow-[0_1px_0_rgba(31,51,40,0.04)]'
+            : 'bg-[#FAF9F5]/60 backdrop-blur-sm border-b border-transparent'
+        }`}
+      >
+        <div className="max-w-7xl grid grid-cols-[auto_1fr_auto] items-center mx-auto px-5 md:px-8 py-3.5">
+
+          {/* LOGO */}
+          <Link href="/" className="flex items-center z-50">
+            <div className="relative w-28 h-10 min-[1330px]:w-52 min-[1330px]:h-16">
+              <Image
+                src="/LOGO_BUKUE_sin fondo.png"
+                alt="BUKUË Consultoría Ambiental"
                 fill
-                className="object-contain"
-                priority 
+                className="object-contain object-left"
+                priority
               />
             </div>
           </Link>
 
-          {/* Acciones - Ajustado a 1330px */}
-          <div className="flex min-[1330px]:order-2 items-center space-x-4 z-50">
-            <Link 
-              href="/contacto" 
-              className={`hidden sm:flex px-6 py-2.5 rounded-full font-bold text-sm lg:text-base transition-all shadow-md ${
+          {/* ENLACES DESKTOP — CENTRADOS */}
+          <div className="hidden min-[1330px]:flex items-center justify-center space-x-12">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={linkClasses(pathname === link.href)}>
+                {link.name}
+              </Link>
+            ))}
+
+            {/* SERVICIOS */}
+            <div className="relative group">
+              <button className={`flex items-center gap-1 ${linkClasses(isServiceActive)}`}>
+                Servicios
+                <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible translate-y-1
+                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                transition-all duration-200 w-80">
+                <div className="bg-white rounded-2xl border border-[#EDEBE2] shadow-xl shadow-[#1F3328]/6 overflow-hidden">
+                  <div className="px-5 pt-4 pb-2">
+                    <span className="font-serif italic text-lg text-[#1F3328]">Servicios</span>
+                  </div>
+                  <div className="pb-2">
+                    {serviceSubLinks.map((sub, i) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className={`block px-5 py-3 transition-colors hover:bg-[#FAF9F5] ${
+                          i !== 0 ? 'border-t border-[#EDEBE2]' : ''
+                        }`}
+                      >
+                        <p className={`text-sm font-semibold ${pathname === sub.href ? 'text-[#3D6B4C]' : 'text-[#1F3328]'}`}>
+                          {sub.name}
+                        </p>
+                        <p className="text-xs text-[#8C8A7E] mt-0.5">{sub.desc}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Link href="/blog" className={linkClasses(pathname === '/blog')}>
+              Blog
+            </Link>
+          </div>
+
+          {/* CTA + BOTÓN MÓVIL */}
+          <div className="flex items-center justify-end space-x-3 z-50">
+            <Link
+              href="/contacto"
+              className={`hidden sm:inline-flex px-6 py-3 rounded-lg font-semibold text-sm min-[1330px]:text-base transition-all ${
                 pathname === '/contacto'
-                  ? 'bg-bukue-dark text-white' 
-                  : 'bg-bukue-primary text-white hover:bg-bukue-dark hover:shadow-bukue-primary/20'
+                  ? 'bg-[#1F3328] text-white'
+                  : 'bg-[#3D6B4C] text-white hover:bg-[#1F3328]'
               }`}
             >
               Contáctenos
             </Link>
 
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-bukue-dark rounded-xl min-[1330px]:hidden hover:bg-bukue-accent/50 transition-colors"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-[#1F3328] rounded-lg min-[1330px]:hidden hover:bg-[#EDEBE2]/60 transition-colors"
+              aria-label="Alternar menú"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-          </div>
-
-          {/* MENÚ EVOLUCIONADO - Ajustado a 1330px */}
-          <div className={`
-            absolute top-0 left-0 w-full h-screen bg-white/95 min-[1330px]:bg-transparent
-            flex flex-col min-[1330px]:flex-row min-[1330px]:h-auto min-[1330px]:relative
-            min-[1330px]:w-auto min-[1330px]:order-1
-            transition-all duration-500 ease-in-out transform
-            ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full min-[1330px]:translate-y-0 opacity-0 min-[1330px]:opacity-100 invisible min-[1330px]:visible'}
-          `}>
-            <ul className="flex flex-col min-[1330px]:flex-row items-center justify-center min-[1330px]:justify-start h-full space-y-8 min-[1330px]:space-y-0 min-[1330px]:space-x-2 p-8 min-[1330px]:p-0 font-semibold">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <li key={link.name} className="w-full min-[1330px]:w-auto text-center">
-                    <Link 
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-2xl min-[1330px]:text-base block py-3 px-6 rounded-2xl transition-all duration-300 whitespace-nowrap ${
-                        isActive 
-                          ? 'text-bukue-primary min-[1330px]:bg-bukue-primary min-[1330px]:text-white' 
-                          : 'text-bukue-dark hover:text-bukue-primary min-[1330px]:hover:bg-bukue-accent' 
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                );
-              })}
-              
-              <li className="w-full sm:hidden pt-6 border-t border-gray-100">
-                <Link 
-                  href="/contacto"
-                  onClick={() => setIsOpen(false)}
-                  className="block py-4 px-8 bg-bukue-primary text-white text-xl font-bold rounded-2xl text-center shadow-xl shadow-bukue-primary/30"
-                >
-                  Contáctenos
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </nav>
+
+      {/* PANEL MÓVIL */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-[#1F3328] z-40
+          flex flex-col justify-between overflow-y-auto min-[1330px]:hidden
+          transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div>
+          <div className="flex items-center justify-between px-6 pt-8 pb-6 border-b border-white/10">
+            <span className="font-serif italic text-lg text-white">Menú</span>
+          </div>
+
+          <ul className="flex flex-col px-6 py-4 space-y-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`block py-3 text-lg font-medium transition-colors ${
+                    pathname === link.href ? 'text-white' : 'text-[#C9CFC7] hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+
+            <li>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className={`w-full flex items-center justify-between py-3 text-lg font-medium transition-colors ${
+                  isServiceActive ? 'text-white' : 'text-[#C9CFC7] hover:text-white'
+                }`}
+              >
+                Servicios
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${servicesOpen ? 'max-h-60 mt-1' : 'max-h-0'}`}>
+                {serviceSubLinks.map((sub) => (
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    className="block py-2.5 pl-4 text-[15px] text-[#C9CFC7] hover:text-white border-l border-white/15"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+            </li>
+
+            <li>
+              <Link
+                href="/blog"
+                className={`block py-3 text-lg font-medium transition-colors ${
+                  pathname === '/blog' ? 'text-white' : 'text-[#C9CFC7] hover:text-white'
+                }`}
+              >
+                Blog
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="px-6 pb-8">
+          <Link
+            href="/contacto"
+            className="block py-3.5 px-6 bg-[#A47750] text-white font-semibold rounded-lg text-center"
+          >
+            Contáctenos
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
