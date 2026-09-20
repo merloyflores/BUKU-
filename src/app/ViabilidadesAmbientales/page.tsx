@@ -88,7 +88,7 @@ const categoriaSetena: Categoria = {
       objetivo:
         'Obtener viabilidad de licencia ambiental para Actividades, Obras y Proyectos (AOP) que cumplan uno o más de los siguientes criterios: área ≥ 1000 m², movimiento de tierra ≥ 1000 m³, ubicación fuera de cuadrante urbano, o Significancia de Impacto Ambiental (SIA) ≥ 330.',
       tarifa:
-        'Varía según el instrumento D1 aplicable: D1+DJCA ₡226, D1+P-PGA $565, D1+EsIA $1,695 (montos con IVA incluido). No se paga por anticipado: la Plataforma Digital indica el instrumento y monto una vez presentados los requisitos generales.',
+        'Varía según el instrumento D1 aplicable: D1+DJCA $226, D1+P-PGA $565, D1+EsIA $1,695 (montos con IVA incluido, según tarifario oficial de SETENA). No se paga por anticipado: la Plataforma Digital indica el instrumento y monto una vez presentados los requisitos generales.',
       viaEntrada: 'Plataforma Digital de SETENA: tramites.setena.go.cr',
       requisitos: [
         {
