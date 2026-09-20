@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -10,6 +10,20 @@ const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Antes: el panel móvil usaba "top-0 h-screen" adivinando que ocuparía
+  // toda la pantalla, pero el <nav> fijo (z-50) se pinta ENCIMA de esa
+  // franja superior (el panel es z-40), tapando su propio encabezado
+  // "Menú". Medimos el alto real del navbar con un ref para que el panel
+  // arranque justo debajo, sin importar si el logo, el padding o el
+  // tamaño de fuente cambian más adelante.
+  const navRef = useRef<HTMLElement>(null);
+  const [navHeight, setNavHeight] = useState(72); // estimado inicial razonable antes de medir
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setServicesOpen(false);
+  };
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
@@ -23,9 +37,31 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
-    setServicesOpen(false);
+    closeMenu();
   }, [pathname]);
+
+  // Mide el alto real del navbar al montar y cuando cambia el tamaño de
+  // ventana (rotar la tablet, redimensionar, etc.), para que el panel
+  // móvil siempre arranque exactamente donde termina el navbar.
+  useEffect(() => {
+    const updateHeight = () => {
+      if (navRef.current) setNavHeight(navRef.current.offsetHeight);
+    };
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
+  // Cierra el menú móvil con la tecla Escape, como se espera de
+  // cualquier panel/diálogo deslizante.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
 
   const serviceSubLinks = [
     { name: 'Trámites en Setena', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y Regencia Ambiental ante SETENA' },
@@ -55,10 +91,12 @@ const Navbar = () => {
         className={`fixed inset-0 z-40 bg-[#1F3328]/40 backdrop-blur-sm transition-opacity duration-300 min-[1330px]:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
-        onClick={() => setIsOpen(false)}
+        onClick={closeMenu}
+        aria-hidden="true"
       />
 
       <nav
+        ref={navRef}
         className={`fixed w-full z-50 top-0 transition-all duration-300 ${
           scrolled
             ? 'bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#EDEBE2] shadow-[0_1px_0_rgba(31,51,40,0.04)]'
@@ -88,15 +126,23 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* SERVICIOS */}
+            {/* SERVICIOS — antes solo se abría con hover (group-hover), lo que
+                dejaba el submenú inalcanzable navegando con teclado. Ahora
+                también responde a "focus-within", así que al llegar con Tab
+                al botón o a un enlace interno el panel se mantiene visible. */}
             <div className="relative group">
-              <button className={`flex items-center gap-1 ${linkClasses(isServiceActive)}`}>
+              <button
+                className={`flex items-center gap-1 ${linkClasses(isServiceActive)}`}
+                aria-haspopup="true"
+                aria-expanded={isServiceActive}
+              >
                 Servicios
                 <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
               </button>
 
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible translate-y-1
                 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
                 transition-all duration-200 w-80">
                 <div className="bg-white rounded-2xl border border-[#EDEBE2] shadow-xl shadow-[#1F3328]/6 overflow-hidden">
                   <div className="px-5 pt-4 pb-2">
@@ -107,7 +153,7 @@ const Navbar = () => {
                       <Link
                         key={sub.href}
                         href={sub.href}
-                        className={`block px-5 py-3 transition-colors hover:bg-[#FAF9F5] ${
+                        className={`block px-5 py-3 transition-colors hover:bg-[#FAF9F5] focus-visible:bg-[#FAF9F5] outline-none ${
                           i !== 0 ? 'border-t border-[#EDEBE2]' : ''
                         }`}
                       >
@@ -141,9 +187,10 @@ const Navbar = () => {
             </Link>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((prev) => !prev)}
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-[#1F3328] rounded-lg min-[1330px]:hidden hover:bg-[#EDEBE2]/60 transition-colors"
-              aria-label="Alternar menú"
+              aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -151,9 +198,16 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* PANEL MÓVIL */}
+      {/* PANEL MÓVIL — antes: "top-0 h-screen" hacía que el panel arrancara
+          detrás del navbar fijo (z-50 encima de z-40) y "h-screen" (100vh)
+          no descontaba la barra de herramientas dinámica de Safari en
+          iPad/iPhone, empujando el botón "Contáctenos" del fondo fuera del
+          área visible en ciertas proporciones de pantalla. Ahora el panel
+          arranca justo debajo del navbar medido (navHeight) y usa "dvh"
+          (viewport dinámico), que sí se ajusta a la barra de Safari. */}
       <div
-        className={`fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-[#1F3328] z-40
+        style={{ top: navHeight, height: `calc(100dvh - ${navHeight}px)` }}
+        className={`fixed right-0 w-80 max-w-[85vw] bg-[#1F3328] z-40
           flex flex-col justify-between overflow-y-auto min-[1330px]:hidden
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
@@ -179,10 +233,11 @@ const Navbar = () => {
 
             <li>
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
+                onClick={() => setServicesOpen((prev) => !prev)}
                 className={`w-full flex items-center justify-between py-3 text-lg font-medium transition-colors ${
                   isServiceActive ? 'text-white' : 'text-[#C9CFC7] hover:text-white'
                 }`}
+                aria-expanded={servicesOpen}
               >
                 Servicios
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
@@ -213,7 +268,9 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="px-6 pb-8">
+        {/* pb-[env(safe-area-inset-bottom)]: evita que el botón quede pegado
+            al home indicator en iPhones/iPads sin botón físico */}
+        <div className="px-6 pb-8 pt-4" style={{ paddingBottom: 'calc(2rem + env(safe-area-inset-bottom))' }}>
           <Link
             href="/contacto"
             className="block py-3.5 px-6 bg-[#A47750] text-white font-semibold rounded-lg text-center"
