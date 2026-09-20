@@ -127,10 +127,10 @@ export default function HeroCertificaciones() {
           src="/HojasFondo4.jpg"
           alt="Excelencia y Cumplimiento"
           fill
-          className="object-cover opacity-30" // Opacidad baja para que el texto destaque
+          className="object-cover opacity-50" // Antes: opacity-30 dejaba la foto casi invisible; 50 la muestra sin restar legibilidad al texto
           priority />
-        {/* Degradado para fundir la imagen con el color corporativo */}
-        <div className="absolute inset-0 bg-linear-to-b from-bukue-dark/80 via-bukue-dark/95 to-bukue-dark" />
+        {/* Degradado más suave (alineado con el de Nosotros.tsx) para que la imagen realmente se note detrás del texto */}
+        <div className="absolute inset-0 bg-linear-to-r from-bukue-dark via-bukue-dark/70 to-bukue-dark/40" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -202,7 +202,7 @@ export default function HeroCertificaciones() {
         <ChevronDown size={32} />
       </motion.div>
     </section>
-    
+
     {/* 2. El Tridente de Consultoría (El Núcleo) */}
     <section id="nuestros-pilares" className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6">
@@ -262,8 +262,8 @@ export default function HeroCertificaciones() {
 
                 {/* Botón sutil de "Saber más" */}
                 <div className="mt-auto pt-10 relative z-10">
-                  <Link 
-                    href={`#${pilar.id}`} 
+                  <Link
+                    href={`#${pilar.id}`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleOpenModal(pilar); // Pasamos el objeto 'pilar' completo
@@ -278,10 +278,10 @@ export default function HeroCertificaciones() {
           </div>
         </div>
         {/* Colócalo aquí, fuera del contenedor del grid */}
-        <ServiceModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-          service={activeService} 
+        <ServiceModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          service={activeService}
         />
       </section>
 
@@ -290,7 +290,7 @@ export default function HeroCertificaciones() {
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-150 h-150 bg-bukue-primary/5 rounded-full blur-3xl -z-10" />
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            
+
             {/* Lado Izquierdo: Texto y Título */}
             <div className="lg:w-1/2">
               <motion.div
@@ -302,15 +302,15 @@ export default function HeroCertificaciones() {
                   Valor Estratégico
                 </span>
                 <h2 className="text-bukue-dark text-4xl md:text-5xl font-black mb-8 leading-tight">
-                  ¿Por qué certificar su <br /> 
+                  ¿Por qué certificar su <br />
                   <span className="text-bukue-primary">empresa con Bukuë?</span>
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  No se trata solo de cumplir con la normativa vigente. Es una decisión 
-                  de negocio que garantiza la continuidad de su operación y mejora 
+                  No se trata solo de cumplir con la normativa vigente. Es una decisión
+                  de negocio que garantiza la continuidad de su operación y mejora
                   sustancialmente su imagen pública.
                 </p>
-                
+
                 {/* Pequeño KPI o dato de impacto */}
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-bukue-primary/10 flex items-center gap-4 w-fit">
                   <div className="bg-bukue-primary/10 p-3 rounded-xl text-bukue-primary">
@@ -360,7 +360,7 @@ export default function HeroCertificaciones() {
       {/* 4. Metodología de Acompañamiento (El "Cómo lo hacemos") */}
       <section className="py-32 bg-gray-100 overflow-hidden">
         <div className="container mx-auto px-6">
-          
+
           {/* Cabecera con Badge y Título */}
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24">
             <h2 className="text-bukue-dark text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
@@ -368,16 +368,17 @@ export default function HeroCertificaciones() {
               <span className="text-bukue-primary italic">Excelencia Normativa</span>
             </h2>
             <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Eliminamos la incertidumbre del proceso mediante un acompañamiento 
+              Eliminamos la incertidumbre del proceso mediante un acompañamiento
               técnico-legal que garantiza resultados medibles y sostenibles.
             </p>
           </div>
 
           {/* Grid Metodológico */}
           <div className="grid lg:grid-cols-3 gap-8 relative">
-            
-            {/* Línea de Progreso (Fondo) */}
-            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-dashed border-t border-gray-200 z-0" />
+
+            {/* Línea de Progreso (Fondo) — antes usaba "bg-dashed", que no existe en Tailwind;
+                el punteado se logra con border-dashed sobre un borde, no con un color de fondo */}
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full border-t-2 border-dashed border-gray-300 z-0" />
 
             {metodologiaPro.map((fase, idx) => (
               <motion.div
@@ -390,7 +391,7 @@ export default function HeroCertificaciones() {
               >
                 {/* Card Principal */}
                 <div className="bg-white rounded-[3rem] p-10 border border-gray-100 shadow-sm group-hover:shadow-2xl transition-all duration-500 h-full flex flex-col relative z-10 overflow-hidden">
-                  
+
                   {/* Background Decor (Blob de color) */}
                   <div className={`absolute -top-10 -right-10 w-32 h-32 bg-linear-to-br ${fase.color} opacity-5 group-hover:opacity-10 rounded-full transition-opacity duration-500`} />
 
@@ -438,7 +439,7 @@ export default function HeroCertificaciones() {
           </div>
         </div>
       </section>
-    
+
       {/* 5. Cierre: CTA Especializado */}
       <section id="contacto" className="py-24 bg-bukue-dark relative overflow-hidden">
         {/* Decoración de fondo sutil */}
@@ -450,7 +451,7 @@ export default function HeroCertificaciones() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[4rem] p-8 md:p-16">
             <div className="grid lg:grid-cols-2 gap-16 items-top">
-              
+
               {/* Texto de Invitación */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -458,11 +459,11 @@ export default function HeroCertificaciones() {
                 viewport={{ once: true }}
               >
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
-                  ¿Listo para elevar sus 
+                  ¿Listo para elevar sus
                   <span className="text-bukue-primary"> estándares?</span>
                 </h2>
                 <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-                  Solicite un diagnóstico preliminar de cumplimiento. Nuestro equipo de expertos 
+                  Solicite un diagnóstico preliminar de cumplimiento. Nuestro equipo de expertos
                   le ayudará a identificar la ruta más eficiente hacia su certificación.
                 </p>
 
@@ -486,7 +487,7 @@ export default function HeroCertificaciones() {
                       <p className="text-lg font-medium">+(506) 8801-7441</p>
                     </div>
                   </div>
-                  <a 
+                  <a
                     href="https://wa.me/50688017441?text=Hola!%20Me%20gustaría%20solicitar%20información%20sobre%20las%20certificaciones%20y%20asesorías."
                     target="_blank"
                     rel="noopener noreferrer"
@@ -514,28 +515,28 @@ export default function HeroCertificaciones() {
               >
                 <h3 className="text-2xl font-black text-bukue-dark mb-2">Inicie hoy mismo</h3>
                 <p className="text-gray-500 mb-8 text-sm">Déjenos sus datos y un consultor especializado se pondrá en contacto en menos de 24 horas.</p>
-                
-                <form 
-                  ref={formRef} 
-                  action={handleSubmit} 
+
+                <form
+                  ref={formRef}
+                  action={handleSubmit}
                   className="space-y-4"
                 >
-                  <input 
-                    name="nombre" 
-                    type="text" 
+                  <input
+                    name="nombre"
+                    type="text"
                     required
-                    placeholder="Nombre completo" 
+                    placeholder="Nombre completo"
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors"
                   />
-                  <input 
-                    name="email" 
-                    type="email" 
+                  <input
+                    name="email"
+                    type="email"
                     required
-                    placeholder="Correo corporativo" 
+                    placeholder="Correo corporativo"
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors"
                   />
-                  <select 
-                    name="interes" 
+                  <select
+                    name="interes"
                     title="Seleccione su área de interés"
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors text-gray-400"
                   >
@@ -545,14 +546,14 @@ export default function HeroCertificaciones() {
                   </select>
 
                   {/* CAMPO DE MENSAJE AÑADIDO */}
-                  <textarea 
+                  <textarea
                     name="mensaje"
                     rows={4}
                     placeholder="Cuéntenos un poco sobre su empresa o necesidad específica..."
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors resize-none"
                   ></textarea>
-                  
-                  <button 
+
+                  <button
                     disabled={isPending}
                     className="w-full bg-bukue-primary hover:bg-bukue-dark text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 group shadow-xl shadow-bukue-primary/20 disabled:opacity-50"
                   >
@@ -566,7 +567,7 @@ export default function HeroCertificaciones() {
                     )}
                   </button>
                 </form>
-                
+
                 <p className="text-center mt-6 text-[10px] text-gray-400 uppercase tracking-widest font-medium">
                   Sin compromisos · Respuesta inmediata
                 </p>
@@ -576,9 +577,9 @@ export default function HeroCertificaciones() {
           </div>
         </div>
       </section>
-   
+
     </main>
 
-    
+
   );
 }

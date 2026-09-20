@@ -26,11 +26,21 @@ export default function Contacto() {
     <div className="pt-32 pb-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Encabezado */}
+          {/* Encabezado — ahora con el mismo badge de "eyebrow" que usan
+              Blog, Certificaciones y Nosotros, para mantener el mismo
+              lenguaje visual en todas las páginas principales */}
           <div className="text-center mb-16">
-            <motion.h1 
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-bukue-accent text-bukue-primary px-4 py-2 rounded-xl text-xs font-black uppercase tracking-[0.2em] border border-bukue-primary/10 mb-6"
+            >
+              Asesoría Directa
+            </motion.div>
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold text-bukue-dark mb-4"
             >
               Hablemos de su <span className="text-bukue-primary">Futuro Sostenible</span>
@@ -41,11 +51,11 @@ export default function Contacto() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Info de Contacto */}
             <div className="space-y-8 ">
-              <div className="bg-bukue-accent p-6 rounded-2xl border border-bukue-primary/10 shadow-xl">
+              <div className="bg-bukue-accent p-6 rounded-[2.5rem] border border-bukue-primary/10 shadow-xl">
                 <h3 className="text-xl font-bold text-bukue-dark mb-6">Información Directa</h3>
-                <div className="space-y-6 break-all">
+                <div className="space-y-6">
                   <div className="flex items-center gap-4 text-gray-700">
-                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
                       <Phone size={20} />
                     </div>
                     <span>(506) 8801-7441</span>
@@ -54,14 +64,17 @@ export default function Contacto() {
                     <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
                       <Mail size={20} />
                     </div>
-                    
-                    {/* Ajustamos el tamaño del texto y forzamos el quiebre si no cabe */}
-                    <span className="text-sm md:text-base break-all md:break-normal truncate hover:text-clip">
+                    {/* Antes: break-all + truncate + hover:text-clip se
+                        contradecían entre sí (truncate fuerza una sola
+                        línea, break-all necesita poder partir en varias).
+                        Con break-all solo, el correo simplemente se
+                        parte en el contenedor sin cortarse ni desbordar. */}
+                    <span className="text-sm md:text-base break-all">
                       admin@bukuecr.com
                     </span>
                   </div>
                   <div className="flex items-center gap-4 text-gray-700">
-                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary">
+                    <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
                       <MapPin size={20} />
                     </div>
                     <span>San José, Costa Rica</span>
@@ -69,20 +82,23 @@ export default function Contacto() {
                 </div>
               </div>
 
-              <a 
-                href="https://wa.me/50688017441" 
+              <a
+                href="https://wa.me/50688017441"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white p-4 rounded-2xl font-bold transition-all shadow-lg shadow-green-200"
               >
-                <IoLogoWhatsapp className='text-24px'/>
+                {/* Antes: className="text-24px" no es una clase válida de
+                    Tailwind (sería text-[24px]); react-icons sí acepta
+                    el prop `size` directamente. */}
+                <IoLogoWhatsapp size={24} />
                 WhatsApp Directo
               </a>
             </div>
 
             {/* Formulario */}
-            <div className="md:col-span-2 bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-50">
-              <form 
+            <div className="md:col-span-2 bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-gray-50">
+              <form
                 ref={formRef}
                 action={handleSubmit}
                 className="space-y-6"
@@ -90,32 +106,32 @@ export default function Contacto() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-bukue-dark ml-1">Nombre Completo</label>
-                    <input 
+                    <input
                       name="nombre"
-                      type="text" 
+                      type="text"
                       required
-                      className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" 
-                      placeholder="Ej: Juan Pérez" 
+                      className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all"
+                      placeholder="Ej: Juan Pérez"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-bukue-dark ml-1">Correo Electrónico</label>
-                    <input 
+                    <input
                       name="email"
-                      type="email" 
+                      type="email"
                       required
-                      className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" 
-                      placeholder="juan@empresa.com" 
+                      className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all"
+                      placeholder="juan@empresa.com"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="asunto" className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
-                  <select 
+                  <select
                     name="asunto"
-                    id="asunto" 
-                    title="Seleccione el servicio de interés" 
+                    id="asunto"
+                    title="Seleccione el servicio de interés"
                     className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all"
                   >
                     <option value="Tramitología Ambiental">Tramitología Ambiental</option>
@@ -127,17 +143,17 @@ export default function Contacto() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-bukue-dark ml-1">Mensaje</label>
-                  <textarea 
+                  <textarea
                     name="mensaje"
                     required
-                    rows={4} 
-                    className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all" 
+                    rows={4}
+                    className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all"
                     placeholder="Cuéntenos sobre su proyecto..."
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isPending}
                   className="w-full md:w-auto bg-bukue-dark hover:bg-bukue-primary text-white font-bold py-4 px-10 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >

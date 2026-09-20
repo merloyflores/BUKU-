@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [pathname]);
 
   const serviceSubLinks = [
-    { name: 'Trámites en Setena', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y gestión ambiental ante Setena' },
+    { name: 'Trámites en Setena', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y Regencia Ambiental ante SETENA' },
     { name: 'Salud Ocupacional', href: '/salud', desc: 'Programas de salud y seguridad laboral' },
     { name: 'Certificaciones', href: '/certificaciones', desc: 'Acompañamiento en normas y certificaciones' },
   ];

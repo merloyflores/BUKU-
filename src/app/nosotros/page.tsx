@@ -12,15 +12,15 @@ export default function Nosotros() {
       {/* SECCIÓN 1 - HERO DE SECCIÓN */}
       <section className="relative min-h-[80vh] py-20 flex items-center bg-bukue-dark overflow-hidden">
         {/* Imagen de fondo con overlay degradado para mejor lectura */}
-        <Image 
-          src="/HojasFondo3.jpg" 
-          alt="Bukuë Consultoría Ambiental" 
-          fill 
+        <Image
+          src="/HojasFondo3.jpg"
+          alt="Bukuë Consultoría Ambiental"
+          fill
           className="object-cover opacity-50"
           priority
         />
         <div className="absolute inset-0 bg-linear-to-r from-bukue-dark via-bukue-dark/60 to-transparent" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -31,18 +31,18 @@ export default function Nosotros() {
             <span className="inline-block bg-bukue-primary/20 text-bukue-light px-4 py-1.5 rounded-full font-bold tracking-widest uppercase text-xs mb-6 border border-bukue-primary/30">
               Consultoría Ambiental Estratégica
             </span>
-            
+
             <h1 className="text-5xl md:text-8xl font-black text-white leading-tight">
               Su aliado para un
               crecimiento <span className="text-bukue-primary">consciente.</span>
             </h1>
-            
+
             <p className="text-gray-300 text-lg md:text-xl mt-8 max-w-2xl leading-relaxed font-medium">
               En BUKUË CR transformamos la responsabilidad ecológica en <span className="text-white font-bold">rentabilidad sostenible</span> para su empresa.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link 
+              <Link
                 href="/#servicios"
                 className="bg-bukue-primary hover:bg-bukue-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group"
               >
@@ -69,17 +69,17 @@ export default function Nosotros() {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
             {/* Contenedor de Imagen con estilo Premium */}
-            <div className="relative h-150 rounded-[3rem] overflow-hidden shadow-2xl z-10 border-8 border-white">
-              <Image 
-                src="/IngenieroAmbiental.webp" 
-                alt="Consultoría Ambiental Bukuë" 
-                fill 
+            <div className="relative h-137.5 rounded-[3rem] overflow-hidden shadow-2xl z-10 border-8 border-white">
+              <Image
+                src="/IngenieroAmbiental.webp"
+                alt="Consultoría Ambiental Bukuë"
+                fill
                 className="object-cover"
               />
             </div>
-            
+
             {/* Badge Flotante: Usando el dato de los 10 años del catálogo */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               className="absolute -bottom-10 -right-6 bg-bukue-primary p-8 rounded-3xl text-white shadow-2xl z-20 text-center"
@@ -101,21 +101,21 @@ export default function Nosotros() {
             </div>
 
             <p className="text-gray-600 text-lg leading-relaxed">
-              En <span className="font-bold">BUKUË CR</span>, somos una firma consultora en servicios ambientales comprometida con el éxito y la sostenibilidad de nuestros clientes. Nuestro enfoque principal es garantizar que cada proyecto que llevamos a cabo no solo cumpla con los másaltos estándares de protección ambiental, sino que también genere ingresos sostenibles para nuestros clientes.
+              En <span className="font-bold">BUKUË CR</span>, somos una firma consultora en servicios ambientales comprometida con el éxito y la sostenibilidad de nuestros clientes. Nuestro enfoque principal es garantizar que cada proyecto que llevamos a cabo no solo cumpla con los más altos estándares de protección ambiental, sino que también genere ingresos sostenibles para nuestros clientes.
             </p>
 
             {/* Los 3 Pilares del PDF (Rentabilidad, Sostenibilidad, Compromiso) */}
             <div className="grid gap-6">
               {[
-                { 
-                  icon: <Target className="text-white" />, 
-                  title: "Resultados Rentables", 
+                {
+                  icon: <Target className="text-white" />,
+                  title: "Resultados Rentables",
                   desc: "Garantizamos que cada proyecto genere ingresos sostenibles mientras cumple con la normativa.",
                   color: "bg-bukue-primary"
                 },
-                { 
-                  icon: <Users className="text-white" />, 
-                  title: "Compromiso Integral", 
+                {
+                  icon: <Users className="text-white" />,
+                  title: "Compromiso Integral",
                   desc: "Trabajamos mano a mano con usted para minimizar el impacto ambiental y maximizar la rentabilidad.",
                   color: "bg-bukue-dark"
                 }
@@ -143,10 +143,10 @@ export default function Nosotros() {
       <section className="py-24 bg-linear-to-b from-white via-[#a6bdae] to-white relative overflow-hidden">
         {/* Fondo decorativo sutil */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-bukue-accent/30 rounded-full blur-3xl -z-10" />
-        
+
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-bukue-primary font-bold uppercase text-sm tracking-[0.2em]"
@@ -178,7 +178,7 @@ export default function Nosotros() {
                 desc: "Experto en la optimización de procesos y cumplimiento técnico institucional."
               },
               {
-                name: "Danny Zamora Chacón", // Ajustar apellido si lo tienes
+                name: "Danny Zamora Chacón",
                 role: "Consultor Ambiental",
                 image: "/DannyPerfil2.png",
                 specialty: "Gestión de Campo",
@@ -191,31 +191,49 @@ export default function Nosotros() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
-                // DETALLE CLAVE: Manejo de clics para tablets
+                // Antes, el clic ya cambiaba el estado (activeIndex), pero las
+                // clases "group-hover:" seguían activas sin distinguir mouse de
+                // touch. En celulares/tablets eso puede quedar en un "hover
+                // pegado" tras el toque (el típico bug de iOS/Android donde el
+                // :hover de CSS se activa con el primer tap y no se libera
+                // bien). Ahora esas clases usan la variante
+                // "[@media(hover:hover)]:group-hover:" para que SOLO respondan
+                // a un mouse real; en pantallas táctiles el efecto depende
+                // 100% del estado de React (activeIndex), controlado por el
+                // toque, sin interferencia del CSS :hover.
                 onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
                 onMouseEnter={() => setActiveIndex(idx)}
                 onMouseLeave={() => setActiveIndex(null)}
-                className="group relative cursor-pointer"
+                className="group relative cursor-pointer touch-manipulation select-none"
               >
                 {/* Contenedor Principal */}
-                <div className={`relative h-137.5 w-full rounded-2xl overflow-hidden bg-bukue-dark shadow-2xl transition-all duration-500 
-                  ${activeIndex === idx ? 'shadow-bukue-primary/20' : ''} group-hover:shadow-bukue-primary/20`}>
-                  
+                <div className={`relative h-137.5 w-full rounded-2xl overflow-hidden bg-bukue-dark shadow-2xl transition-all duration-500
+                  ${activeIndex === idx ? 'shadow-bukue-primary/20' : ''} [@media(hover:hover)]:group-hover:shadow-bukue-primary/20`}>
+
                   {/* Imagen */}
-                  <Image 
-                    src={member.image} 
-                    alt={member.name} 
-                    fill 
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
                     className={`object-cover object-top transition-all duration-700 ease-in-out
-                      ${activeIndex === idx ? 'grayscale-0 scale-110 opacity-100' : 'grayscale md:grayscale opacity-80 md:opacity-80'} 
-                      group-hover:grayscale-0 md:group-hover:scale-110 group-hover:opacity-100`}
+                      ${activeIndex === idx ? 'grayscale-0 scale-110 opacity-100' : 'grayscale opacity-80'}
+                      [@media(hover:hover)]:group-hover:grayscale-0 [@media(hover:hover)]:group-hover:scale-110 [@media(hover:hover)]:group-hover:opacity-100`}
                   />
+
+                  {/* Pista táctil: en mouse el "hover" ya comunica que hay más
+                      info; en celular/tablet no existe ese cursor, así que sin
+                      esto no había ninguna señal de que la foto se puede tocar. */}
+                  {activeIndex !== idx && (
+                    <div className="lg:hidden absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-bukue-dark text-[10px] font-black uppercase tracking-wide px-3 py-1.5 rounded-full shadow-md pointer-events-none animate-pulse">
+                      Toca para ver más
+                    </div>
+                  )}
 
                   <div className="absolute inset-0 bg-linear-to-t from-bukue-dark via-transparent to-transparent opacity-90" />
 
                   {/* Tarjeta de Información */}
                   <div className="absolute bottom-4 left-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl transition-transform duration-500">
-                    
+
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <span className="text-white/60 text-[10px] font-black uppercase tracking-[0.2em] bg-bukue-primary/30 px-3 py-1 rounded-full border border-bukue-primary/20">
@@ -225,9 +243,11 @@ export default function Nosotros() {
                           {member.name}
                         </h4>
                       </div>
-                      {/* Icono que gira */}
-                      <div className={`bg-bukue-primary p-2 rounded-full text-white transition-transform duration-700 
-                        ${activeIndex === idx ? 'rotate-360' : ''} group-hover:rotate-360`}>
+                      {/* Icono que gira. Antes: rotate-360 no existe en Tailwind
+                          (el máximo por defecto es rotate-180), así que el giro
+                          nunca ocurría; rotate-[360deg] sí es un valor arbitrario válido. */}
+                      <div className={`bg-bukue-primary p-2 rounded-full text-white transition-transform duration-700
+                        ${activeIndex === idx ? 'rotate-[360deg]' : ''} [@media(hover:hover)]:group-hover:rotate-[360deg]`}>
                         <Target size={16} />
                       </div>
                     </div>
@@ -237,9 +257,9 @@ export default function Nosotros() {
                     </p>
 
                     {/* Descripción expandible */}
-                    <div className={`transition-all duration-500 overflow-hidden 
-                      ${activeIndex === idx ? 'h-20 opacity-100' : 'h-0 opacity-0'} 
-                      group-hover:h-20 group-hover:opacity-100`}>
+                    <div className={`transition-all duration-500 overflow-hidden
+                      ${activeIndex === idx ? 'h-20 opacity-100' : 'h-0 opacity-0'}
+                      [@media(hover:hover)]:group-hover:h-20 [@media(hover:hover)]:group-hover:opacity-100`}>
                       <p className="text-gray-300 text-sm leading-relaxed border-t border-white/10 pt-3">
                         {member.desc}
                       </p>
@@ -252,28 +272,28 @@ export default function Nosotros() {
           </div>
         </div>
       </section>
-      
+
       {/* SECCIÓN 4: EDUCACIÓN AMBIENTAL & CTA AL BLOG */}
       <section className="py-24 bg-bukue-dark relative overflow-hidden">
         {/* Decoración: Hojas sutiles de fondo para mantener la temática */}
         <div className="absolute inset-0 opacity-10">
-          <Image 
-            src="/HojasFondo3.jpg" 
-            alt="Textura ambiental" 
-            fill 
+          <Image
+            src="/HojasFondo3.jpg"
+            alt="Textura ambiental"
+            fill
             className="object-cover"
           />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="bg-white/5 backdrop-blur-md rounded-[4rem] p-8 md:p-16 border border-white/10 flex flex-col lg:flex-row items-center gap-16">
-            
+
             {/* Imagen representativa de Educación */}
             <div className="lg:w-1/2 relative h-112.5 w-full rounded-[3rem] overflow-hidden shadow-2xl">
-              <Image 
-                src="/EducacionAmbiental.png" 
-                alt="Talleres de Educación Ambiental" 
-                fill 
+              <Image
+                src="/EducacionAmbiental.png"
+                alt="Talleres de Educación Ambiental"
+                fill
                 className="object-cover"
               />
               {/* Overlay informativo extraído del PDF */}
@@ -315,8 +335,8 @@ export default function Nosotros() {
                   whileTap={{ scale: 0.95 }}
                   className="group bg-white text-bukue-dark px-10 py-5 rounded-full font-black flex items-center gap-3 shadow-2xl hover:bg-bukue-primary hover:text-white transition-all duration-300"
                 >
-                  <BookOpen size={20} className="group-hover:rotate-12 transition-transform" /> 
-                  Explorar nuestro Blog 
+                  <BookOpen size={20} className="group-hover:rotate-12 transition-transform" />
+                  Explorar nuestro Blog
                   <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                 </motion.button>
               </Link>
@@ -324,7 +344,7 @@ export default function Nosotros() {
           </div>
         </div>
       </section>
-      
+
     </div>
   );
 }

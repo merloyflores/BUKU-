@@ -1,30 +1,25 @@
 "use client";
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Route, Zap } from 'lucide-react';
 import { ArrowRight, Target, Leaf, BarChart3, ShieldCheck, FileText, Droplets, Trash2, GraduationCap, Building2, Award } from 'lucide-react';
 import { IoLogoWhatsapp } from "react-icons/io";
 
+// Variantes reutilizables para las entradas escalonadas (stagger) de tarjetas.
+// Tipadas explícitamente como `Variants`: si no se anota el tipo, TypeScript
+// infiere "easeOut" como un string genérico en vez del literal que espera
+// framer-motion, y eso es justo lo que producía el error "not assignable to
+// type 'Variants'".
+const containerStagger: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
 
-const AnimatedLeaves = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  return (
-    <motion.div
-      style={{ y, opacity }}
-      className="fixed top-0 left-0 w-full z-40 pointer-events-none"
-    >
-      <div className="relative w-full h-64">
-        <Image
-          src="/HojasSuperiores_SinFondo.png"
-          alt="Hojas decorativas"
-          fill
-          className="object-contain object-top opacity-80"
-        />
-      </div>
-    </motion.div>
-  );
+const cardRise: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export default function Home() {
@@ -32,21 +27,28 @@ export default function Home() {
     <div className="flex flex-col gap-20 bg-white">
     {/* 1. HERO */}
       <section className="relative h-[85vh] md:h-[90vh] flex items-center overflow-hidden">
-        <Image 
-          src="/HojasFondo2.jpg" 
-          alt="Energía Eólica Costa Rica" 
-          fill 
-          className="object-cover z-0"
-          priority
-        />
+        <motion.div
+          initial={{ scale: 1.12 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 8, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src="/HojasFondo2.jpg"
+            alt="Energía Eólica Costa Rica"
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay para lectura */}
-        
+
         <div className="container mx-auto px-6 relative z-20 text-white">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            
+
             {/* LADO IZQUIERDO: TEXTOS */}
             <div>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -54,25 +56,30 @@ export default function Home() {
               >
                 Sostenibilidad que genera <span className="text-bukue-light">Rentabilidad</span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
                 className="mt-6 text-xl text-gray-100 max-w-xl font-light"
               >
-                En <b className='font-bold'>BUKU<span className="text-shadow-bukue-primary">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
+                En <b className='font-bold'>BUKU<span className="text-bukue-light">Ë</span></b> creemos que la rentabilidad y la ecología son complementarias. Construimos un futuro donde tu empresa crece y el planeta prospera.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
                 className="mt-10 flex gap-4"
               >
-                <a href="/contacto" className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-all flex items-center gap-2">
+                <motion.a
+                  href="/contacto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-bukue-primary hover:bg-bukue-light text-white hover:text-bukue-dark px-8 py-4 rounded-full font-bold transition-colors flex items-center gap-2"
+                >
                   Iniciar Proyecto <ArrowRight size={20} />
-                </a>
+                </motion.a>
               </motion.div>
             </div>
 
@@ -83,14 +90,19 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="hidden lg:flex justify-end"
             >
-            <Image 
+            <motion.div
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
                 src="/LOGO_BUKUE_sin fondo.png"
                 alt="Bukuë Logo"
-                width={350} 
+                width={350}
                 height={150}
                 className="object-contain drop-shadow-2xl"
                 priority
               />
+            </motion.div>
             </motion.div>
 
           </div>
@@ -101,9 +113,15 @@ export default function Home() {
       <section id="nosotros" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Columna Izquierda: Texto */}
-            <div className="flex flex-col justify-center space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col justify-center space-y-6"
+            >
               <h2 className="text-bukue-dark text-3xl md:text-4xl font-bold leading-tight">
                 Tu Aliado Estratégico en Servicios Ambientales
               </h2>
@@ -113,48 +131,72 @@ export default function Home() {
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 Nuestro objetivo es transformar los desafíos ambientales en oportunidades de innovación y crecimiento, ayudando a las empresas a construir un futuro más sostenible, eficiente y competitivo.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Columna Derecha: Grilla Simétrica de Tarjetas */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              
+            {/* Columna Derecha: Grilla Simétrica de Tarjetas — antes eran divs
+                estáticos sin ninguna animación, algo inconsistente con el resto
+                de la página. Ahora entran con un stagger suave al hacer scroll. */}
+            <motion.div
+              variants={containerStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            >
+
               {/* Tarjeta 1 */}
-              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+              <motion.div
+                variants={cardRise}
+                whileHover={{ y: -6 }}
+                className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-shadow hover:shadow-md"
+              >
                 <Leaf className="text-bukue-primary mb-4 shrink-0" size={32} />
                 <div>
                   <h3 className="font-bold text-bukue-dark text-lg leading-snug">Sostenibilidad</h3>
                   <p className="text-xs text-gray-500 mt-1 font-medium">Gobernanza, Social y Ambiental</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Tarjeta 2 */}
-              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+              <motion.div
+                variants={cardRise}
+                whileHover={{ y: -6 }}
+                className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-shadow hover:shadow-md"
+              >
                 <BarChart3 className="text-bukue-primary mb-4 shrink-0" size={32} />
                 <div>
                   <h3 className="font-bold text-bukue-dark text-lg leading-snug">Economía</h3>
                   <p className="text-xs text-gray-500 mt-1 font-medium">Optimización de recursos</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Tarjeta 3 */}
-              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
+              <motion.div
+                variants={cardRise}
+                whileHover={{ y: -6 }}
+                className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-shadow hover:shadow-md"
+              >
                 <ShieldCheck className="text-bukue-primary mb-4 shrink-0" size={32} />
                 <div>
                   <h3 className="font-bold text-bukue-dark text-lg leading-snug">Cumplimiento</h3>
                   <p className="text-xs text-gray-500 mt-1 font-medium">Normativa y legalidad</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Tarjeta 4 */}
-              <div className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-all hover:shadow-md">
-                <Route className="text-bukue-primary mb-4 shrink-0" size={32} /> 
+              <motion.div
+                variants={cardRise}
+                whileHover={{ y: -6 }}
+                className="p-6 bg-bukue-accent/40 rounded-2xl border border-bukue-primary/15 flex flex-col justify-between h-full min-h-[160px] transition-shadow hover:shadow-md"
+              >
+                <Route className="text-bukue-primary mb-4 shrink-0" size={32} />
                 <div>
                   <h3 className="font-bold text-bukue-dark text-lg leading-snug">Estrategia</h3>
                   <p className="text-xs text-gray-500 mt-1 font-medium">Planes a la medida</p>
                 </div>
-              </div>
+              </motion.div>
 
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -163,9 +205,9 @@ export default function Home() {
       {/* 3. SOLUCIONES INTEGRALES */}
       <section id="servicios" className="bg-bukue-accent py-24 scroll-mt-24">
         <div className="container mx-auto px-6">
-          
+
         {/* Encabezado de la sección */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -189,7 +231,7 @@ export default function Home() {
           <div className="flex flex-col items-center">
             <div className="w-20 h-1.5 bg-bukue-primary rounded-full mb-8" />
             <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl">
-              Brindamos consultoría técnica especializada para transformar sus desafíos 
+              Brindamos consultoría técnica especializada para transformar sus desafíos
               normativos en <span className="font-semibold text-bukue-dark">ventajas competitivas</span> sostenibles.
             </p>
           </div>
@@ -215,7 +257,9 @@ export default function Home() {
                 id: "certificaciones",
                 icon: <Award size={28} />,
                 title: "Certificaciones",
-                desc: "Obtener certificaciones de calidad y o ambientales a través de consultoría especializada impulsa la confianza del cliente y mejora la eficiencia operativa. Además,te posiciona como una empresa competitiva que	cumple	con	estándares	internacionales, generando nuevas oportunidades de negocio.",
+                // Antes: el texto traía tabulaciones sueltas ("que\tcumple\tcon\testándares\tinternacionales")
+                // pegadas desde Word, lo que generaba espacios irregulares al renderizar.
+                desc: "Obtener certificaciones de calidad y o ambientales a través de consultoría especializada impulsa la confianza del cliente y mejora la eficiencia operativa. Además, te posiciona como una empresa competitiva que cumple con estándares internacionales, generando nuevas oportunidades de negocio.",
                 items: [
                   "Bandera Azul Ecológica.",
                   "Certificación de sostenibilidad turística.",
@@ -265,7 +309,7 @@ export default function Home() {
               },
               {
                 id: "integral",
-                icon: <Target size={28} />, // Asegúrate de importar 'Target' o 'Shield' de lucide-react
+                icon: <Target size={28} />,
                 title: "Gestión Ambiental 360°",
                 desc: "Integramos todos nuestros servicios en una estrategia unificada. Desde la tramitología hasta la salud ocupacional, somos su departamento ambiental externo.",
                 items: [
@@ -273,14 +317,15 @@ export default function Home() {
                 ]
               }
             ].map((servicio, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 className={`p-8 rounded-4xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden group border ${
-                  servicio.id === "integral" 
-                    ? "bg-bukue-dark text-white border-bukue-dark hover:shadow-bukue-primary/30" 
+                  servicio.id === "integral"
+                    ? "bg-bukue-dark text-white border-bukue-dark hover:shadow-bukue-primary/30"
                     : "bg-white text-gray-600 border-gray-100"
                 }`}
                 >
@@ -288,25 +333,25 @@ export default function Home() {
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-bukue-accent/50 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out -z-10" />
 
                 {/* Icono animado */}
-                <div className="w-16 h-16 bg-bukue-accent rounded-2xl flex items-center justify-center text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                <div className="w-16 h-16 bg-bukue-accent rounded-2xl flex items-center justify-center text-bukue-primary mb-6 group-hover:bg-bukue-primary group-hover:text-white group-hover:-rotate-6 transition-all duration-300 shadow-sm">
                   {servicio.icon}
                 </div>
 
                 <div className="relative mb-4">
                   <h3 className={`text-2xl font-black transition-all duration-300 group-hover:pl-4 ${
-                    servicio.id === "integral" 
+                    servicio.id === "integral"
                       ? "text-white group-hover:text-gray-300" // Blanco en oscuro, gris en hover
                       : "text-bukue-dark group-hover:text-bukue-primary" // Normal
                   }`}>
                     {servicio.title}
                   </h3>
-                  
+
                   {/* Línea decorativa lateral: Blanca para la tarjeta oscura */}
                   <div className={`absolute left-0 top-0 h-full w-1 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom ${
                     servicio.id === "integral" ? "bg-white" : "bg-bukue-primary"
                   }`} />
                 </div>
-                
+
                 {/* Párrafo de descripción */}
                 <p className={`mb-6 text-sm leading-relaxed transition-colors ${
                   servicio.id === "integral" ? "text-gray-200" : "text-gray-600"
@@ -322,7 +367,7 @@ export default function Home() {
                     <li key={i} className="flex items-start gap-3">
                       <ArrowRight size={16} className={`${
                         servicio.id === "integral" ? "text-white" : "text-bukue-primary"
-                      } mt-0.5 shrink-0`} /> 
+                      } mt-0.5 shrink-0`} />
                       <span className="leading-snug">{item}</span>
                     </li>
                   ))}
@@ -364,45 +409,57 @@ export default function Home() {
       {/* 4. SECCIÓN DE CIERRE / CTA */}
       <section className="py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-linear-to-br from-bukue-dark to-bukue-primary rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl"
+            className="bg-linear-to-br from-bukue-dark to-bukue-primary rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl"
           >
             {/* Elementos decorativos animados */}
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
               transition={{ duration: 20, repeat: Infinity }}
               className="absolute -top-20 -right-20 w-64 h-64 bg-bukue-light/10 rounded-full blur-3xl"
+            />
+            {/* Segundo blob, en espejo, para que el fondo respire en ambas esquinas */}
+            <motion.div
+              animate={{ scale: [1.2, 1, 1.2], rotate: [90, 0, 90] }}
+              transition={{ duration: 24, repeat: Infinity }}
+              className="absolute -bottom-24 -left-24 w-72 h-72 bg-white/5 rounded-full blur-3xl"
             />
 
             <div className="relative z-10 max-w-3xl mx-auto">
               <span className="inline-flex items-center gap-2 bg-bukue-light/20 text-bukue-light px-4 py-2 rounded-full text-sm font-bold mb-6 uppercase tracking-widest">
                 <Zap size={16} /> ¿Listo para el siguiente paso?
               </span>
-              
+
               <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
                 Hagamos que su proyecto sea <span className="text-bukue-light">referente de éxito</span>
               </h2>
-              
+
               <p className="text-xl text-gray-200 mb-12 font-light">
-                No permita que la tramitología o la falta de estrategia ambiental detenga su crecimiento. 
+                No permita que la tramitología o la falta de estrategia ambiental detenga su crecimiento.
                 Nuestro equipo está listo para asesorarle hoy mismo.
               </p>
 
+              {/* Antes: rounded-full + text-xl obligaban una forma de "píldora"
+                  que en móvil no alcanza a mostrar "Contactar por WhatsApp" en
+                  una sola línea, así que el texto se partía en 3 renglones
+                  dentro de un óvalo, viéndose deforme. En móvil ahora usa un
+                  radio más moderado (rounded-2xl), texto y padding más chicos,
+                  y el ícono queda arriba del texto centrado en vez de al costado. */}
               <motion.a
                 href="https://wa.me/50688017441"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-white text-bukue-dark hover:bg-bukue-light hover:text-white px-10 py-5 rounded-full font-black text-xl transition-colors shadow-xl"
+                className="inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 bg-white text-bukue-dark hover:bg-bukue-light hover:text-white px-6 py-4 sm:px-10 sm:py-5 rounded-2xl sm:rounded-full font-black text-base sm:text-xl text-center leading-tight transition-colors shadow-xl w-full sm:w-auto"
               >
-                <IoLogoWhatsapp />
-                Contactar por WhatsApp
+                <IoLogoWhatsapp size={22} className="shrink-0" />
+                <span>Contactar por WhatsApp</span>
               </motion.a>
-              
+
               <p className="mt-8 text-sm text-gray-300 opacity-70">
                 Respuesta inmediata • Asesoría personalizada • (506) 8801-7441
               </p>
