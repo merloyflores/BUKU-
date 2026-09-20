@@ -13,11 +13,24 @@ import {
   Construction,
   Download,
   Clock,
-  DollarSign,
   Landmark,
   ChevronRight,
   CheckCircle2,
 } from 'lucide-react';
+
+// Ícono del colón costarricense (₡). Lucide no incluye este símbolo, así que
+// se dibuja el carácter real con el mismo tamaño/grosor que los íconos de
+// lucide-react a su alrededor, para que combine visualmente sin ambigüedad
+// de moneda.
+const ColonIcon = ({ size = 18, className = '' }: { size?: number; className?: string }) => (
+  <span
+    style={{ fontSize: size, lineHeight: 1, width: size, height: size }}
+    className={`inline-flex items-center justify-center font-black shrink-0 ${className}`}
+    aria-hidden="true"
+  >
+    ₡
+  </span>
+);
 
 /**
  * CENTRO DE TRÁMITES INSTITUCIONALES
@@ -538,7 +551,7 @@ export default function TramitesInstitucionales() {
 
                 <div className="grid sm:grid-cols-2 gap-4 mt-6">
                   <div className="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-4">
-                    <DollarSign size={18} className="text-bukue-primary mt-0.5 shrink-0" />
+                    <ColonIcon size={18} className="text-bukue-primary mt-0.5" />
                     <div>
                       <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wide">Tarifa</p>
                       <p className="text-sm font-semibold text-bukue-dark leading-snug">{tramite.tarifa}</p>
