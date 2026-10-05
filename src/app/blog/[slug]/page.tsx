@@ -136,7 +136,7 @@ export default function BlogPostDetail() {
   return (
     <article className="min-h-screen bg-[#f7faf7] pb-20">
       <header className="relative overflow-hidden">
-        <div className="relative h-[70vh] min-h-[520px] w-full bg-bukue-dark">
+        <div className="relative min-h-[70svh] md:min-h-[70vh] w-full bg-bukue-dark">
           <Image
             src={post.image || '/placeholder-blog.webp'}
             alt={post.title}
@@ -147,7 +147,7 @@ export default function BlogPostDetail() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,46,22,0.92)_0%,rgba(5,46,22,0.74)_42%,rgba(5,46,22,0.25)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#f7faf7] to-transparent" />
 
-          <div className="container mx-auto px-6 relative z-10 h-full flex items-end pb-14 md:pb-18">
+          <div className="container mx-auto px-6 relative z-10 min-h-[70svh] md:min-h-[70vh] flex items-end pt-24 sm:pt-28 md:pt-32 pb-14 md:pb-18">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

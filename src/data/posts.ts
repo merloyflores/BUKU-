@@ -41,8 +41,128 @@ export const categorias = [
 ] as const;
 
 export const blogPosts: BlogPost[] = [
-  
-  
+  // ==========================================================
+  // 9. NIIF S1 y S2 — Sostenibilidad en Costa Rica
+  // Fuente base: Circular N.° 33-2023 del Colegio de Contadores
+  // Públicos de Costa Rica. Artículo editorial, no transcripción.
+  // ==========================================================
+  {
+    id: 9,
+    slug: 'niif-s1-s2-sostenibilidad-costa-rica',
+    title: 'NIIF S1 y S2 en Costa Rica: qué cambia con la Circular 33-2023 sobre sostenibilidad',
+    excerpt:
+      'Costa Rica avanza hacia una divulgación de sostenibilidad más integrada con la información financiera. Conozca qué establecen las NIIF S1 y S2, a quiénes alcanza la adopción y cuáles son las fechas clave.',
+    category: 'Sostenibilidad',
+    author: 'Equipo Técnico BUKUË',
+    date: '4 Oct, 2026',
+    readTime: '8 min',
+    videoUrl: null,
+    image: '/economia-circolare_2400x1160.jpg',
+    images: [],
+    tags: ['NIIF S1', 'NIIF S2', 'Sostenibilidad', 'ISSB', 'Circular 33-2023', 'Costa Rica'],
+    content: [
+      {
+        type: 'paragraph',
+        text: 'La sostenibilidad está dejando de ser un tema separado de la información financiera. En Costa Rica, la Circular N.° 33-2023 del Colegio de Contadores Públicos formaliza la adopción de las Normas NIIF de Información a Revelar sobre Sostenibilidad emitidas por la Junta de Normas Internacionales de Sostenibilidad (ISSB), creando un marco para comunicar riesgos y oportunidades de sostenibilidad de una manera más comparable, transparente y útil para la toma de decisiones.',
+      },
+      {
+        type: 'callout',
+        title: '¿Qué busca este nuevo enfoque?',
+        text: 'Que la información sobre sostenibilidad pueda integrarse a los informes financieros de propósito general y ayude a comprender cómo determinados riesgos y oportunidades podrían afectar las perspectivas de una organización en el corto, mediano y largo plazo.',
+      },
+      {
+        type: 'heading',
+        text: 'Dos estándares que conviene conocer: NIIF S1 y NIIF S2',
+      },
+      {
+        type: 'paragraph',
+        text: 'La Circular identifica dos estándares centrales. La NIIF S1 establece los requerimientos generales para la información financiera relacionada con la sostenibilidad. Su propósito es que las organizaciones comuniquen riesgos y oportunidades de sostenibilidad que puedan ser relevantes para quienes toman decisiones sobre el suministro de recursos a la entidad.',
+      },
+      {
+        type: 'paragraph',
+        text: 'La NIIF S2 se concentra específicamente en información relacionada con el clima y debe utilizarse junto con la NIIF S1. El documento destaca la necesidad de revelar información que permita comprender los riesgos físicos y de transición asociados al clima, así como aspectos relacionados con la medición de gases de efecto invernadero.',
+      },
+      {
+        type: 'heading',
+        text: '¿Qué adoptó Costa Rica mediante la Circular 33-2023?',
+      },
+      {
+        type: 'paragraph',
+        text: 'El Colegio de Contadores Públicos de Costa Rica adoptó de forma plena el conjunto de Normas NIIF de Información a Revelar sobre Sostenibilidad publicadas por el ISSB. La intención es que esta información complemente los estados financieros y permita evaluar con mayor claridad la exposición de una entidad a riesgos y oportunidades relacionados con sostenibilidad.',
+      },
+      {
+        type: 'paragraph',
+        text: 'La Circular también señala que las modificaciones a estas normas y los nuevos estándares que publique el ISSB se considerarán incorporados a la normativa de aplicación en Costa Rica, sin perjuicio de que el Colegio pueda realizar evaluaciones o recomendaciones para su aplicación concreta en el país.',
+      },
+      {
+        type: 'heading',
+        text: 'Fechas clave: adopción voluntaria y aplicación obligatoria',
+      },
+      {
+        type: 'paragraph',
+        text: 'Las NIIF S1 y NIIF S2 fueron adoptadas por el Colegio a partir del 1 de enero de 2024. Desde esa fecha su aplicación puede realizarse de manera voluntaria; sin embargo, la Circular establece una implementación escalonada para determinados tipos de entidades.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Las entidades con obligación pública de rendir cuentas que utilicen las Normas NIIF de Contabilidad, incluidas aquellas bajo supervisión de las Superintendencias que conforman CONASSIF, deberán reportar en 2028 la información financiera relacionada con sostenibilidad correspondiente al período anual finalizado el 31 de diciembre de 2027.',
+          'La misma referencia temporal aplica a grandes contribuyentes que, por sus características y por el marco de información financiera aplicable, deban utilizar las Normas NIIF de Contabilidad.',
+          'Los grandes contribuyentes que estén facultados para utilizar NIIF para las PYMES no quedan obligados a aplicar NIIF S1 y S2 únicamente por su condición de grandes contribuyentes.',
+          'Las demás entidades que utilicen Normas NIIF de Contabilidad pueden adoptar voluntariamente NIIF S1 y S2 en el período que su administración considere conveniente.',
+          'Para otras entidades que utilicen NIIF para las PYMES, la aplicación no será obligatoria hasta que la normativa correspondiente o las disposiciones del Colegio así lo establezcan.',
+          'En el caso de entes públicos regulados por la Contabilidad Nacional, deberán atenderse las disposiciones que emita ese ente rector.',
+        ],
+      },
+      {
+        type: 'heading',
+        text: '¿Qué cambia para las organizaciones?',
+      },
+      {
+        type: 'paragraph',
+        text: 'El cambio más relevante es conceptual: la sostenibilidad pasa a vincularse de forma más directa con la calidad y utilidad de la información financiera. Ya no se trata únicamente de comunicar iniciativas ambientales o sociales de manera aislada, sino de identificar aquellos riesgos y oportunidades de sostenibilidad que puedan incidir en las perspectivas de la entidad y presentarlos con criterios de consistencia, comparabilidad y transparencia.',
+      },
+      {
+        type: 'paragraph',
+        text: 'En materia climática, la NIIF S2 pone especial atención en la capacidad de la organización para reconocer y comunicar riesgos físicos y de transición. También incorpora la medición de gases de efecto invernadero dentro de los elementos que pueden resultar relevantes para comprender la exposición climática de una entidad.',
+      },
+      {
+        type: 'heading',
+        text: 'La gestión ambiental adquiere un papel cada vez más estratégico',
+      },
+      {
+        type: 'paragraph',
+        text: 'Para las organizaciones que deberán aplicar estos estándares —y también para aquellas que decidan prepararse voluntariamente— contar con información ambiental ordenada, verificable y trazable puede convertirse en una pieza importante del proceso. La gestión de riesgos, el seguimiento de aspectos climáticos y la disponibilidad de datos consistentes dejan de ser únicamente asuntos operativos y comienzan a tener una relación más estrecha con la información utilizada por inversionistas y otros usuarios de los informes financieros.',
+      },
+      {
+        type: 'callout',
+        title: 'Una preparación práctica',
+        text: 'Como recomendación de preparación —y no como un requisito adicional establecido textualmente por la Circular— una organización puede comenzar por identificar cuál marco contable le aplica, determinar si se encuentra dentro de los grupos alcanzados por la implementación obligatoria, revisar sus riesgos y oportunidades de sostenibilidad y evaluar qué información ambiental y climática posee actualmente y con qué nivel de trazabilidad.',
+      },
+      {
+        type: 'heading',
+        text: 'Alivios previstos para la transición',
+      },
+      {
+        type: 'paragraph',
+        text: 'La Circular contempla disposiciones transitorias para facilitar la aplicación inicial. Entre ellas, no se exige presentar información comparativa correspondiente a períodos anteriores a la primera aplicación de NIIF S1 y NIIF S2. Además, durante el primer período anual existen disposiciones específicas sobre el momento en que pueden presentarse las revelaciones financieras relacionadas con sostenibilidad, conforme a los apartados transitorios de las propias normas.',
+      },
+      {
+        type: 'heading',
+        text: 'Un cambio que conviene preparar con anticipación',
+      },
+      {
+        type: 'paragraph',
+        text: 'Aunque la obligación no llegará al mismo tiempo para todas las organizaciones, la Circular 33-2023 marca una dirección clara: la información sobre sostenibilidad y clima tendrá una presencia creciente dentro de los procesos de divulgación financiera. Preparar desde ahora la calidad de los datos, los criterios de seguimiento y la coordinación entre las áreas financiera, administrativa y ambiental puede facilitar una transición más ordenada cuando corresponda aplicar estos estándares.',
+      },
+      {
+        type: 'callout',
+        title: 'Fuente documental',
+        text: 'Este artículo fue elaborado a partir de la Circular N.° 33-2023 del Colegio de Contadores Públicos de Costa Rica, “Adopción de las Normas NIIF de Información a Revelar sobre Sostenibilidad”. Es una síntesis informativa y no sustituye la consulta de la normativa vigente ni el criterio profesional aplicable a cada organización.',
+      },
+    ],
+  },
+
+
   // ==========================================================
   // 1. SETENA — Formulario D1
   // ==========================================================
@@ -457,7 +577,7 @@ export const blogPosts: BlogPost[] = [
   },
 
   // ==========================================================
-  // 8. Carbono Neutralidad
+  // 8. Carbono Neutralidad (NUEVO)
   // ==========================================================
   {
     id: 8,
@@ -470,7 +590,7 @@ export const blogPosts: BlogPost[] = [
     date: '10 Feb, 2026',
     readTime: '8 min',
     videoUrl: null,
-    image: '/4463-carbono-neutral.jpg',
+    image: '/CarbonoNeutralidadCR.jpg',
     images: ['/BosqueCostaRica.jpg', '/InventarioGEI.jpg'],
     tags: ['Carbono Neutralidad', 'INTE B5', 'FONAFIFO', 'Cambio Climático'],
     content: [
@@ -515,125 +635,5 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
-  // ==========================================================
-  // 9. NIIF S1 y S2 — Sostenibilidad en Costa Rica
-  // Fuente base: Circular N.° 33-2023 del Colegio de Contadores
-  // Públicos de Costa Rica. Artículo editorial, no transcripción.
-  // ==========================================================
-  {
-    id: 9,
-    slug: 'niif-s1-s2-sostenibilidad-costa-rica',
-    title: 'NIIF S1 y S2 en Costa Rica: qué cambia con la Circular 33-2023 sobre sostenibilidad',
-    excerpt:
-      'Costa Rica avanza hacia una divulgación de sostenibilidad más integrada con la información financiera. Conozca qué establecen las NIIF S1 y S2, a quiénes alcanza la adopción y cuáles son las fechas clave.',
-    category: 'Sostenibilidad',
-    author: 'Equipo Técnico BUKUË',
-    date: '4 Oct, 2026',
-    readTime: '8 min',
-    videoUrl: null,
-    image: '/economia-circolare_2400x1160.jpg',
-    images: [],
-    tags: ['NIIF S1', 'NIIF S2', 'Sostenibilidad', 'ISSB', 'Circular 33-2023', 'Costa Rica'],
-    content: [
-      {
-        type: 'paragraph',
-        text: 'La sostenibilidad está dejando de ser un tema separado de la información financiera. En Costa Rica, la Circular N.° 33-2023 del Colegio de Contadores Públicos formaliza la adopción de las Normas NIIF de Información a Revelar sobre Sostenibilidad emitidas por la Junta de Normas Internacionales de Sostenibilidad (ISSB), creando un marco para comunicar riesgos y oportunidades de sostenibilidad de una manera más comparable, transparente y útil para la toma de decisiones.',
-      },
-      {
-        type: 'callout',
-        title: '¿Qué busca este nuevo enfoque?',
-        text: 'Que la información sobre sostenibilidad pueda integrarse a los informes financieros de propósito general y ayude a comprender cómo determinados riesgos y oportunidades podrían afectar las perspectivas de una organización en el corto, mediano y largo plazo.',
-      },
-      {
-        type: 'heading',
-        text: 'Dos estándares que conviene conocer: NIIF S1 y NIIF S2',
-      },
-      {
-        type: 'paragraph',
-        text: 'La Circular identifica dos estándares centrales. La NIIF S1 establece los requerimientos generales para la información financiera relacionada con la sostenibilidad. Su propósito es que las organizaciones comuniquen riesgos y oportunidades de sostenibilidad que puedan ser relevantes para quienes toman decisiones sobre el suministro de recursos a la entidad.',
-      },
-      {
-        type: 'paragraph',
-        text: 'La NIIF S2 se concentra específicamente en información relacionada con el clima y debe utilizarse junto con la NIIF S1. El documento destaca la necesidad de revelar información que permita comprender los riesgos físicos y de transición asociados al clima, así como aspectos relacionados con la medición de gases de efecto invernadero.',
-      },
-      {
-        type: 'heading',
-        text: '¿Qué adoptó Costa Rica mediante la Circular 33-2023?',
-      },
-      {
-        type: 'paragraph',
-        text: 'El Colegio de Contadores Públicos de Costa Rica adoptó de forma plena el conjunto de Normas NIIF de Información a Revelar sobre Sostenibilidad publicadas por el ISSB. La intención es que esta información complemente los estados financieros y permita evaluar con mayor claridad la exposición de una entidad a riesgos y oportunidades relacionados con sostenibilidad.',
-      },
-      {
-        type: 'paragraph',
-        text: 'La Circular también señala que las modificaciones a estas normas y los nuevos estándares que publique el ISSB se considerarán incorporados a la normativa de aplicación en Costa Rica, sin perjuicio de que el Colegio pueda realizar evaluaciones o recomendaciones para su aplicación concreta en el país.',
-      },
-      {
-        type: 'heading',
-        text: 'Fechas clave: adopción voluntaria y aplicación obligatoria',
-      },
-      {
-        type: 'paragraph',
-        text: 'Las NIIF S1 y NIIF S2 fueron adoptadas por el Colegio a partir del 1 de enero de 2024. Desde esa fecha su aplicación puede realizarse de manera voluntaria; sin embargo, la Circular establece una implementación escalonada para determinados tipos de entidades.',
-      },
-      {
-        type: 'list',
-        items: [
-          'Las entidades con obligación pública de rendir cuentas que utilicen las Normas NIIF de Contabilidad, incluidas aquellas bajo supervisión de las Superintendencias que conforman CONASSIF, deberán reportar en 2028 la información financiera relacionada con sostenibilidad correspondiente al período anual finalizado el 31 de diciembre de 2027.',
-          'La misma referencia temporal aplica a grandes contribuyentes que, por sus características y por el marco de información financiera aplicable, deban utilizar las Normas NIIF de Contabilidad.',
-          'Los grandes contribuyentes que estén facultados para utilizar NIIF para las PYMES no quedan obligados a aplicar NIIF S1 y S2 únicamente por su condición de grandes contribuyentes.',
-          'Las demás entidades que utilicen Normas NIIF de Contabilidad pueden adoptar voluntariamente NIIF S1 y S2 en el período que su administración considere conveniente.',
-          'Para otras entidades que utilicen NIIF para las PYMES, la aplicación no será obligatoria hasta que la normativa correspondiente o las disposiciones del Colegio así lo establezcan.',
-          'En el caso de entes públicos regulados por la Contabilidad Nacional, deberán atenderse las disposiciones que emita ese ente rector.',
-        ],
-      },
-      {
-        type: 'heading',
-        text: '¿Qué cambia para las organizaciones?',
-      },
-      {
-        type: 'paragraph',
-        text: 'El cambio más relevante es conceptual: la sostenibilidad pasa a vincularse de forma más directa con la calidad y utilidad de la información financiera. Ya no se trata únicamente de comunicar iniciativas ambientales o sociales de manera aislada, sino de identificar aquellos riesgos y oportunidades de sostenibilidad que puedan incidir en las perspectivas de la entidad y presentarlos con criterios de consistencia, comparabilidad y transparencia.',
-      },
-      {
-        type: 'paragraph',
-        text: 'En materia climática, la NIIF S2 pone especial atención en la capacidad de la organización para reconocer y comunicar riesgos físicos y de transición. También incorpora la medición de gases de efecto invernadero dentro de los elementos que pueden resultar relevantes para comprender la exposición climática de una entidad.',
-      },
-      {
-        type: 'heading',
-        text: 'La gestión ambiental adquiere un papel cada vez más estratégico',
-      },
-      {
-        type: 'paragraph',
-        text: 'Para las organizaciones que deberán aplicar estos estándares —y también para aquellas que decidan prepararse voluntariamente— contar con información ambiental ordenada, verificable y trazable puede convertirse en una pieza importante del proceso. La gestión de riesgos, el seguimiento de aspectos climáticos y la disponibilidad de datos consistentes dejan de ser únicamente asuntos operativos y comienzan a tener una relación más estrecha con la información utilizada por inversionistas y otros usuarios de los informes financieros.',
-      },
-      {
-        type: 'callout',
-        title: 'Una preparación práctica',
-        text: 'Como recomendación de preparación —y no como un requisito adicional establecido textualmente por la Circular— una organización puede comenzar por identificar cuál marco contable le aplica, determinar si se encuentra dentro de los grupos alcanzados por la implementación obligatoria, revisar sus riesgos y oportunidades de sostenibilidad y evaluar qué información ambiental y climática posee actualmente y con qué nivel de trazabilidad.',
-      },
-      {
-        type: 'heading',
-        text: 'Alivios previstos para la transición',
-      },
-      {
-        type: 'paragraph',
-        text: 'La Circular contempla disposiciones transitorias para facilitar la aplicación inicial. Entre ellas, no se exige presentar información comparativa correspondiente a períodos anteriores a la primera aplicación de NIIF S1 y NIIF S2. Además, durante el primer período anual existen disposiciones específicas sobre el momento en que pueden presentarse las revelaciones financieras relacionadas con sostenibilidad, conforme a los apartados transitorios de las propias normas.',
-      },
-      {
-        type: 'heading',
-        text: 'Un cambio que conviene preparar con anticipación',
-      },
-      {
-        type: 'paragraph',
-        text: 'Aunque la obligación no llegará al mismo tiempo para todas las organizaciones, la Circular 33-2023 marca una dirección clara: la información sobre sostenibilidad y clima tendrá una presencia creciente dentro de los procesos de divulgación financiera. Preparar desde ahora la calidad de los datos, los criterios de seguimiento y la coordinación entre las áreas financiera, administrativa y ambiental puede facilitar una transición más ordenada cuando corresponda aplicar estos estándares.',
-      },
-      {
-        type: 'callout',
-        title: 'Fuente documental',
-        text: 'Este artículo fue elaborado a partir de la Circular N.° 33-2023 del Colegio de Contadores Públicos de Costa Rica, “Adopción de las Normas NIIF de Información a Revelar sobre Sostenibilidad”. Es una síntesis informativa y no sustituye la consulta de la normativa vigente ni el criterio profesional aplicable a cada organización.',
-      },
-    ],
-  },
 
 ];
