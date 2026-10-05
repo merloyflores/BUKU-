@@ -120,39 +120,26 @@ export default function HeroCertificaciones() {
   return (
     <main>
     {/* 1. Hero Section: "De la Norma a la Excelencia" */}
-    <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden bg-bukue-dark">
-      {/* 1. Imagen de Fondo con Overlay de Marca */}
+    <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center overflow-hidden bg-bukue-dark">
+      {/* Conservamos el fondo propio de la página; solo estandarizamos la composición del hero. */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/HojasFondo4.jpg"
           alt="Excelencia y Cumplimiento"
           fill
-          className="object-cover opacity-50" // Antes: opacity-30 dejaba la foto casi invisible; 50 la muestra sin restar legibilidad al texto
+          className="object-cover opacity-50"
           priority />
-        {/* Degradado más suave (alineado con el de Nosotros.tsx) para que la imagen realmente se note detrás del texto */}
         <div className="absolute inset-0 bg-linear-to-r from-bukue-dark via-bukue-dark/70 to-bukue-dark/40" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
-          {/* Badge de confianza */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2 bg-bukue-primary/20 border border-bukue-primary/30 w-fit px-4 py-2 rounded-full mb-8"
-          >
-            <ShieldCheck size={18} className="text-bukue-primary" />
-            <span className="text-bukue-primary font-bold tracking-widest uppercase text-xs">
-              Asesoría de Alto Nivel
-            </span>
-          </motion.div>
-
-          {/* Título Principal con Énfasis */}
+      <div className="container mx-auto px-6 relative z-10 py-24">
+        <div className="max-w-3xl">
+          {/* Título Principal con la misma escala y ritmo visual del hero de Nosotros */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter"
+            className="text-5xl md:text-7xl font-bold text-white leading-tight"
           >
             Elevamos sus <br />
             <span className="text-bukue-primary">Estándares.</span>
@@ -163,7 +150,7 @@ export default function HeroCertificaciones() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-gray-300 text-lg md:text-2xl leading-relaxed max-w-2xl mb-12 font-medium"
+            className="mt-6 text-xl text-gray-100 max-w-xl font-light leading-relaxed"
           >
             Consultoría especializada en sistemas <span className="text-white font-bold">ISO</span>,
             gestión integral de <span className="text-white font-bold">TST</span> y sellos de sostenibilidad
@@ -175,7 +162,7 @@ export default function HeroCertificaciones() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 mt-10"
           >
             <a
               href="#nuestros-pilares"

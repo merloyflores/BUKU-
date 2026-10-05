@@ -26,17 +26,8 @@ export default function Contacto() {
     <div className="pt-32 pb-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          {/* Encabezado — ahora con el mismo badge de "eyebrow" que usan
-              Blog, Certificaciones y Nosotros, para mantener el mismo
-              lenguaje visual en todas las páginas principales */}
+          {/* Encabezado limpio: sin rótulo previo al título principal. */}
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-bukue-accent text-bukue-primary px-4 py-2 rounded-xl text-xs font-black uppercase tracking-[0.2em] border border-bukue-primary/10 mb-6"
-            >
-              Asesoría Directa
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

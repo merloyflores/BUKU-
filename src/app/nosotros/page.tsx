@@ -10,8 +10,8 @@ export default function Nosotros() {
   return (
     <div className="bg-white">
       {/* SECCIÓN 1 - HERO DE SECCIÓN */}
-      <section className="relative min-h-[80vh] py-20 flex items-center bg-bukue-dark overflow-hidden">
-        {/* Imagen de fondo con overlay degradado para mejor lectura */}
+      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center bg-bukue-dark overflow-hidden">
+        {/* Conservamos el fondo propio de la página; solo estandarizamos la composición del hero. */}
         <Image
           src="/HojasFondo3.jpg"
           alt="Bukuë Consultoría Ambiental"
@@ -21,23 +21,19 @@ export default function Nosotros() {
         />
         <div className="absolute inset-0 bg-linear-to-r from-bukue-dark via-bukue-dark/60 to-transparent" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10 py-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-3xl"
           >
-            <span className="inline-block bg-bukue-primary/20 text-bukue-light px-4 py-1.5 rounded-full font-bold tracking-widest uppercase text-xs mb-6 border border-bukue-primary/30">
-              Consultoría Ambiental Estratégica
-            </span>
-
-            <h1 className="text-5xl md:text-8xl font-black text-white leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
               Su aliado para un
               crecimiento <span className="text-bukue-primary">consciente.</span>
             </h1>
 
-            <p className="text-gray-300 text-lg md:text-xl mt-8 max-w-2xl leading-relaxed font-medium">
+            <p className="mt-6 text-xl text-gray-100 max-w-xl font-light leading-relaxed">
               En BUKUË CR transformamos la responsabilidad ecológica en <span className="text-white font-bold">rentabilidad sostenible</span> para su empresa.
             </p>
 
