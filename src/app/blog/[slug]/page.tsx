@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import { blogPosts, ContentBlock } from '@/data/posts';
 import { getYouTubeEmbedId } from '@/lib/video';
 import Image from 'next/image';
-import { ArrowLeft, Clock, Tag, Share2, Calendar, CheckCircle2, ArrowRight, Check } from 'lucide-react';
+import { ArrowLeft, Clock, Tag, Share2, Calendar, CheckCircle2, ArrowRight, Check, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -249,9 +249,20 @@ export default function BlogPostDetail() {
                 </div>
               </div>
 
+              {post.documentUrl && (
+                <a
+                  href={post.documentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-10 bg-white border border-bukue-primary/20 text-bukue-dark py-4 px-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:border-bukue-primary hover:text-bukue-primary transition-all"
+                >
+                  <FileText size={20} /> Ver PDF oficial
+                </a>
+              )}
+
               <button
                 onClick={compartir}
-                className="w-full mt-12 bg-bukue-dark text-white py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:bg-bukue-primary transition-all shadow-xl hover:shadow-bukue-primary/20"
+                className={`${post.documentUrl ? 'mt-4' : 'mt-12'} w-full bg-bukue-dark text-white py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:bg-bukue-primary transition-all shadow-xl hover:shadow-bukue-primary/20`}
               >
                 {copiado ? (
                   <>

@@ -128,17 +128,14 @@ export default function Contacto() {
 
                 <div className="space-y-2">
                   <label htmlFor="asunto" className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
-                  <select
+                  <input
                     name="asunto"
                     id="asunto"
-                    title="Seleccione el servicio de interés"
+                    type="text"
+                    required
                     className="w-full p-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-bukue-primary/20 focus:border-bukue-primary transition-all"
-                  >
-                    <option value="Tramitología Ambiental">Tramitología Ambiental</option>
-                    <option value="Salud Ocupacional">Salud Ocupacional</option>
-                    <option value="Certificaciones ISO / Carbono Neutral">Certificaciones ISO / Carbono Neutral</option>
-                    <option value="Otros">Otros</option>
-                  </select>
+                    placeholder="Escriba el asunto o servicio de su interés"
+                  />
                 </div>
 
                 <div className="space-y-2">

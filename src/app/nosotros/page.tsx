@@ -179,7 +179,7 @@ export default function Nosotros() {
               },
               {
                 name: "Danny Zamora Chacón",
-                role: "Consultor Ambiental",
+                role: "Gestor Ambiental",
                 image: "/DannyPerfil2.png",
                 specialty: "Gestión de Campo",
                 desc: "Dedicado a la implementación efectiva de medidas de mitigación y seguimiento."
