@@ -590,8 +590,8 @@ export const blogPosts: BlogPost[] = [
     date: '10 Feb, 2026',
     readTime: '8 min',
     videoUrl: null,
-    image: '/CarbonoNeutralidadCR.jpg',
-    images: ['/BosqueCostaRica.jpg', '/InventarioGEI.jpg'],
+    image: '/4463-carbono-neutral.jpg',
+    images: ['/BosqueCostaRica.jfif', '/InventarioGEI.jfif'],
     tags: ['Carbono Neutralidad', 'INTE B5', 'FONAFIFO', 'Cambio Climático'],
     content: [
       {
