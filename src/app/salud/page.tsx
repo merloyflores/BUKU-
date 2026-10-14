@@ -36,7 +36,7 @@ const serviciosSalud = [
     title: "Brigadas de emergencia",
     desc: "Capacitación técnica y formación de brigadas contra incendios, primeros auxilios y evacuación, alineadas con los protocolos de la Comisión Nacional de Emergencias.",
     icon: <Siren size={32} />,
-    image: "/brigadaemergencia.jpg",
+    image: "/brigadaemergencia1.jpg",
     slug: "brigadas-emergencia"
   },
   {

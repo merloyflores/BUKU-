@@ -54,7 +54,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="text-5xl md:text-7xl font-bold leading-tight"
               >
-                Sostenibilidad que genera <span className="text-bukue-light">Rentabilidad</span>
+                Sostenibilidad que genera <span className="text-bukue-light">rentabilidad</span>
               </motion.h1>
 
               <motion.p
