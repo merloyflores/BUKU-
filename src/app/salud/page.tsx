@@ -19,28 +19,28 @@ import {
 // un botón "Más información" decorativo que no llevaba a ningún lado.
 const serviciosSalud = [
   {
-    title: "Planes de Salud Ocupacional",
+    title: "Planes de salud ocupacional",
     desc: "Elaboración y registro de planes oficiales ante el Consejo de Salud Ocupacional (CSO), conforme al Reglamento General de Seguridad e Higiene en el Trabajo.",
     icon: <ShieldCheck size={32} />,
     image: "/Planes-Salud-Ocupacional.jpg",
     slug: "planes-salud-ocupacional"
   },
   {
-    title: "Comisiones de Salud Ocupacional",
+    title: "Comisiones de salud ocupacional",
     desc: "Constitución, capacitación y registro de la Comisión de Salud Ocupacional, obligatoria por Ley para toda empresa con 10 o más trabajadores.",
     icon: <Users size={32} />,
     image: "/Comision-Salud-Ocupacional.jpg",
     slug: "comisiones-salud-ocupacional"
   },
   {
-    title: "Brigadas de Emergencia",
+    title: "Brigadas de emergencia",
     desc: "Capacitación técnica y formación de brigadas contra incendios, primeros auxilios y evacuación, alineadas con los protocolos de la Comisión Nacional de Emergencias.",
     icon: <Siren size={32} />,
     image: "/brigadaemergencia.jpg",
     slug: "brigadas-emergencia"
   },
   {
-    title: "Permisos Sanitarios de Funcionamiento",
+    title: "Permisos sanitarios de funcionamiento",
     desc: "Gestión completa ante el Ministerio de Salud para la obtención y renovación del Permiso Sanitario, conforme al Decreto Ejecutivo N° 39472-S.",
     icon: <ClipboardCheck size={32} />,
     image: "/requisitos-para-obtener-permisos.webp",
@@ -82,11 +82,11 @@ export default function SaludOcupacionalPage() {
               className="flex items-center gap-2 text-bukue-primary font-bold tracking-widest uppercase text-xs mb-6"
             >
               <span className="w-8 h-0.5 bg-bukue-primary"></span>
-              Gestión de Riesgo Humano
+              Gestión de riesgo humano
             </motion.div>
             <h1 className="text-5xl md:text-7xl font-black text-bukue-dark leading-tight tracking-tighter">
-              Salud Ocupacional <br />
-              <span className="text-bukue-primary italic">y Bienestar Laboral.</span>
+              Salud ocupacional <br />
+              <span className="text-bukue-primary italic">y bienestar laboral.</span>
             </h1>
             <p className="mt-8 text-xl text-gray-500 font-light leading-relaxed">
               En Costa Rica, la seguridad laboral no es solo un requisito legal, es la base de la continuidad de su negocio. Ayudamos a empresas a cumplir con la normativa del <b className="text-bukue-dark">Consejo de Salud Ocupacional (CSO)</b>, el <b className="text-bukue-dark">Ministerio de Salud</b> y el <b className="text-bukue-dark">INS</b>, con un enfoque humano.
@@ -103,21 +103,21 @@ export default function SaludOcupacionalPage() {
               <div className="w-12 h-12 bg-bukue-accent rounded-full flex items-center justify-center text-bukue-primary">
                 <FileText size={24} />
               </div>
-              <h4 className="text-xl font-bold text-bukue-dark">Cumplimiento Legal</h4>
+              <h4 className="text-xl font-bold text-bukue-dark">Cumplimiento legal</h4>
               <p className="text-gray-500 text-sm">Evite multas y cierres cumpliendo con la Ley 6727 de Riesgos del Trabajo y el Reglamento General de Seguridad e Higiene en el Trabajo.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-bukue-accent rounded-full flex items-center justify-center text-bukue-primary">
                 <Activity size={24} />
               </div>
-              <h4 className="text-xl font-bold text-bukue-dark">Continuidad Operativa</h4>
+              <h4 className="text-xl font-bold text-bukue-dark">Continuidad operativa</h4>
               <p className="text-gray-500 text-sm">Reduzca el ausentismo y los accidentes laborales mediante una identificación temprana de riesgos y una Comisión de Salud Ocupacional activa.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-bukue-accent rounded-full flex items-center justify-center text-bukue-primary">
                 <HeartPulse size={24} />
               </div>
-              <h4 className="text-xl font-bold text-bukue-dark">Cultura de Cuidado</h4>
+              <h4 className="text-xl font-bold text-bukue-dark">Cultura de cuidado</h4>
               <p className="text-gray-500 text-sm">Mejore el clima organizacional demostrando un compromiso real con la salud física y mental de su equipo.</p>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function SaludOcupacionalPage() {
                 </h2>
                 <div className="h-1 w-20 bg-bukue-primary mb-6"></div>
                 <p className="text-sm text-gray-400 uppercase tracking-widest font-bold">
-                  Análisis de Riesgo y Cumplimiento
+                  Análisis de riesgo y cumplimiento
                 </p>
               </div>
 
@@ -210,7 +210,7 @@ export default function SaludOcupacionalPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-bukue-primary">
-              Marco Legal
+              Marco legal
             </span>
             <h2 className="text-bukue-dark text-3xl md:text-4xl font-bold mt-3 leading-tight">
               Normativa que rige nuestra gestión
@@ -241,10 +241,10 @@ export default function SaludOcupacionalPage() {
               </h2>
               <div className="space-y-4">
                 {[
-                  "Inspecciones Físico-Sanitarias",
+                  "Inspecciones físico-sanitarias",
                   "Comisión de Salud Ocupacional (Ley 6727)",
-                  "Gestión de Residuos Bioinfecciosos",
-                  "Protocolos de Emergencia"
+                  "Gestión de residuos bioinfecciosos",
+                  "Protocolos de emergencia"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle className="text-bukue-primary" size={20} />
@@ -256,7 +256,7 @@ export default function SaludOcupacionalPage() {
                 href="/contacto"
                 className="inline-flex items-center gap-2 mt-10 bg-bukue-primary text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-bukue-dark transition-colors"
               >
-                Solicitar Diagnóstico Inicial <ArrowRight size={16} />
+                Solicitar diagnóstico inicial <ArrowRight size={16} />
               </Link>
             </div>
             <div className="lg:w-1/2 relative h-100 w-full rounded-2xl overflow-hidden">

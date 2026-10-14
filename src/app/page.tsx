@@ -123,7 +123,7 @@ export default function Home() {
               className="flex flex-col justify-center space-y-6"
             >
               <h2 className="text-bukue-dark text-3xl md:text-4xl font-bold leading-tight">
-                Tu Aliado Estratégico en Servicios Ambientales
+                Tu aliado estratégico en servicios ambientales
               </h2>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                 En <strong className="font-bold text-bukue-dark">BUKUË</strong>, creemos que la sostenibilidad y el crecimiento empresarial pueden ir de la mano. Por eso, trabajamos junto a cada empresa para diseñar soluciones personalizadas que reduzcan su impacto ambiental, optimicen el uso de sus recursos y, al mismo tiempo, impulsen su rentabilidad.
@@ -224,7 +224,7 @@ export default function Home() {
 
           {/* 2. Título con Resaltado Dinámico */}
           <h2 className="text-bukue-dark text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
-            Soluciones <span className="text-bukue-primary">Integrales</span> para su Empresa
+            Soluciones <span className="text-bukue-primary">integrales</span> para su empresa
           </h2>
 
           {/* 3. Línea Decorativa y Descripción */}
@@ -246,9 +246,9 @@ export default function Home() {
                 title: "Tramitología",
                 desc: "Contamos con amplia experiencia en tramitología ante instituciones. Simplificá procesos regulatorios, asegurando que tu empresa cumpla con la normativa vigente, así evita sanciones, acelera procesos de permisos y permite concentrarse en el crecimiento del negocio sin complicaciones administrativas. Además contamos con el respaldo y experiencia profesional de mas de 10 años en estos servicios.",
                 items: [
-                  "Viabilidades Ambientales.",
+                  "Viabilidades ambientales.",
                   "Permisos para sistemas de tratamiento de Aguas Residuales.",
-                  "Presentación de Reportes Operacionales ante el Ministerio de Salud.",
+                  "Presentación de reportes operacionales ante el Ministerio de Salud.",
                   "Concesiones de aprovechamiento de agua.",
                   "Planes de gestión integral de residuos sólidos."
                 ]
@@ -272,39 +272,39 @@ export default function Home() {
               {
                 id: "soluciones",
                 icon: <Droplets size={28} />,
-                title: "Soluciones",
-                desc: "Nuestra guía y experiencia en solucionar problemáticas ambientales permite identificar y mitigar riesgos ecológicos, reduciendo el impacto ambiental de tus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantiza la continuidad de su operación.",
+                title: "Proyectos ambientales",
+                desc: "Nuestra experiencia en el diseño y ejecución de proyectos ambientales permite identificar y mitigar riesgos ecológicos, reduciendo el impacto de sus operaciones. Esto no solo protege los recursos naturales, sino que también mejora la imagen pública de la empresa y garantiza la continuidad de su operación.",
                 items: [
-                  "Planes de Gestión Integral de Residuos Sólidos.",
-                  "Diseño de Sistemas de Tratamiento de Aguas Residuales.",
-                  "Asesoría en la operación de Sistemas de Tratamiento de Aguas Residuales.",
-                  "Estudios de Impacto Ambiental para permisos de Zonas Francas ante PROCOMER.",
-                  "Planes de Gestión Ambiental.",
+                  "Planes de gestión integral de residuos sólidos.",
+                  "Diseño de sistemas de tratamiento de aguas residuales.",
+                  "Asesoría en la operación de sistemas de tratamiento de aguas residuales.",
+                  "Estudios de impacto ambiental para permisos de zonas francas ante PROCOMER.",
+                  "Planes de gestión ambiental.",
                   "Diseños de Jardines de Polinizadores y para Atracción de Aves."
                 ]
               },
               {
                 id: "educacion",
                 icon: <GraduationCap size={28} />,
-                title: "Educación Ambiental",
+                title: "Educación ambiental",
                 desc: "La educación ambiental fortalece la responsabilidad social de tu empresa, fomentando una cultura organizacional que entiende y respeta el medio ambiente. Educar al personal reduce riesgos, mejora la eficiencia y fortalece la reputación de la marca.",
                 items: [
                   "Programas educativos en ambiente y sostenibilidad para escuelas, colegios y centros de capacitación (talleres, actividades prácticas y experiencias educativas).",
                   "Charlas de sensibilización en temas de recurso hídrico.",
                   "Capacitaciones en compostaje.",
                   "Capacitaciones en recuperación de materiales.",
-                  "Charla de Sensibilización en Cambio Climático."
+                  "Charla de sensibilización en cambio climático."
                 ]
               },
               {
                 id: "salud",
                 icon: <Building2 size={28} />,
-                title: "Salud Ocupacional",
+                title: "Salud ocupacional",
                 desc: "Invertir en salud ocupacional reduce accidentes y optimiza costos. Creamos entornos laborales seguros y saludables.",
                 items: [
-                  "Planes de Emergencia.",
-                  "Planes de Salud Ocupacional.",
-                  "Plan de confinamiento de Ruido."
+                  "Planes de emergencia.",
+                  "Planes de salud ocupacional.",
+                  "Plan de confinamiento de ruido."
                 ]
               },
               {
@@ -461,7 +461,7 @@ export default function Home() {
               </motion.a>
 
               <p className="mt-8 text-sm text-gray-300 opacity-70">
-                Respuesta inmediata • Asesoría personalizada • (506) 8801-7441
+                Respuesta inmediata • Asesoría personalizada • +506 8801-7441
               </p>
             </div>
           </motion.div>

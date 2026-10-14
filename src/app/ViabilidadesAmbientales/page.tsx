@@ -105,10 +105,10 @@ const categoriaSetena: Categoria = {
       viaEntrada: 'Plataforma Digital de SETENA: tramites.setena.go.cr',
       requisitos: [
         {
-          titulo: 'Datos generales y del representante legal',
+          titulo: 'Requisitos del dueño del proyecto y/o representante legal',
           detalle: [
-            'Nombre, ubicación (provincia/cantón/distrito) y datos del propietario del proyecto.',
-            'Datos del representante legal y, cuando aplique, poder especial firmado digitalmente.',
+            'Nombre del proyecto, ubicación (provincia, cantón y distrito) y datos completos del propietario.',
+            'Datos del representante legal y, cuando aplique, el poder especial correspondiente, firmado digitalmente.',
             'Datos del Consultor Ambiental registrado y vigente ante SETENA.'
           ]
         },
@@ -264,7 +264,7 @@ const categoriaSetena: Categoria = {
 // ============================================================
 const categoriaAguas: Categoria = {
   id: 'aguas',
-  nombre: 'Dirección de Aguas',
+  nombre: 'Dirección de Agua',
   institucion: 'Dirección de Agua · MINAE',
   descripcion:
     'Gestionamos sus trámites de concesión, perforación, vertido y obra en cauce ante la Dirección de Agua, conforme al reglamento vigente y la plataforma SIPECO.',
@@ -425,7 +425,7 @@ export default function TramitesInstitucionales() {
         {/* ENCABEZADO */}
         <div className="max-w-3xl mb-12">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-bukue-primary">
-            Centro de Trámites Institucionales
+            Centro de trámites institucionales
           </span>
           <h2 className="text-bukue-dark text-4xl md:text-5xl font-bold mt-3 mb-5 leading-tight">
             Del expediente a la resolución final
@@ -600,7 +600,7 @@ export default function TramitesInstitucionales() {
             className="bg-bukue-dark text-white px-7 py-3.5 rounded-md font-bold text-sm hover:bg-bukue-primary transition-colors shrink-0"
             onClick={() => router.push('/contacto')}
           >
-            Iniciar Consulta Gratuita
+            Iniciar consulta gratuita
           </button>
         </div>
       </div>

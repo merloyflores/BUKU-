@@ -63,10 +63,10 @@ const Footer = () => {
               que un visitante espera encontrar sin tener que desplegar nada. */}
           <div className="order-2 md:order-4">
             <h3 className="text-sm font-bold uppercase tracking-widest text-bukue-light mb-5 md:hidden">
-              Contacto Directo
+              Contacto directo
             </h3>
             <h3 className="text-lg font-bold mb-6 border-l-4 border-bukue-light pl-3 hidden md:block">
-              Contacto Directo
+              Contacto directo
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start gap-3 justify-center md:justify-start">
@@ -75,7 +75,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3 justify-center md:justify-start">
                 <Phone size={18} className="text-bukue-light shrink-0" />
-                <a href="tel:+50688017441" className="hover:text-white transition-colors">(506) 8801-7441</a>
+                <a href="tel:+50688017441" className="hover:text-white transition-colors">+506 8801-7441</a>
               </li>
               <li className="flex items-start gap-3 justify-center md:justify-start">
                 <Mail size={18} className="text-bukue-light shrink-0" />
@@ -97,17 +97,17 @@ const Footer = () => {
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-4">Empresa</h4>
                   <ul className="space-y-3 text-gray-400 text-sm">
                     <li><Link href="/" className="hover:text-white">Inicio</Link></li>
-                    <li><Link href="/nosotros" className="hover:text-white">Sobre Nosotros</Link></li>
-                    <li><Link href="#servicios" className="hover:text-white">Soluciones</Link></li>
+                    <li><Link href="/nosotros" className="hover:text-white">Sobre nosotros</Link></li>
+                    <li><Link href="#servicios" className="hover:text-white">Servicios</Link></li>
                     <li><Link href="https://wa.me/50688017441" className="hover:text-white">Cita de Valoración</Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-4">Servicios</h4>
                   <ul className="space-y-3 text-gray-400 text-sm">
-                    <li><Link href="/tramitologia-ambiental" className="hover:text-white">Tramitología Ambiental</Link></li>
-                    <li><Link href="/gestion-residuos" className="hover:text-white">Gestión de Residuos</Link></li>
-                    <li><Link href="/salud" className="hover:text-white">Salud Ocupacional</Link></li>
+                    <li><Link href="/tramitologia-ambiental" className="hover:text-white">Tramitología ambiental</Link></li>
+                    <li><Link href="/gestion-residuos" className="hover:text-white">Gestión de residuos</Link></li>
+                    <li><Link href="/salud" className="hover:text-white">Salud ocupacional</Link></li>
                     <li><Link href="/certificaciones" className="hover:text-white">Certificaciones ISO</Link></li>
                   </ul>
                 </div>
@@ -122,8 +122,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li><Link href="/" className="hover:text-white flex items-center gap-2">Inicio</Link></li>
-              <li><Link href="/nosotros" className="hover:text-white flex items-center gap-2">Sobre Nosotros</Link></li>
-              <li><Link href="#servicios" className="hover:text-white flex items-center gap-2">Soluciones</Link></li>
+              <li><Link href="/nosotros" className="hover:text-white flex items-center gap-2">Sobre nosotros</Link></li>
+              <li><Link href="#servicios" className="hover:text-white flex items-center gap-2">Servicios</Link></li>
               <li><Link href="https://wa.me/50688017441" className="hover:text-white flex items-center gap-2 tracking-wide">Cita de Valoración</Link></li>
             </ul>
           </div>
@@ -134,9 +134,9 @@ const Footer = () => {
               Servicios
             </h3>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li><Link href="/tramitologia-ambiental" className="hover:text-white cursor-pointer transition-colors">Tramitología Ambiental</Link></li>
-              <li><Link href="/gestion-residuos" className="hover:text-white cursor-pointer transition-colors">Gestión de Residuos</Link></li>
-              <li><Link href="/salud" className="hover:text-white cursor-pointer transition-colors">Salud Ocupacional</Link></li>
+              <li><Link href="/tramitologia-ambiental" className="hover:text-white cursor-pointer transition-colors">Tramitología ambiental</Link></li>
+              <li><Link href="/gestion-residuos" className="hover:text-white cursor-pointer transition-colors">Gestión de residuos</Link></li>
+              <li><Link href="/salud" className="hover:text-white cursor-pointer transition-colors">Salud ocupacional</Link></li>
               <li><Link href="/certificaciones" className="hover:text-white cursor-pointer transition-colors">Certificaciones ISO</Link></li>
             </ul>
           </div>

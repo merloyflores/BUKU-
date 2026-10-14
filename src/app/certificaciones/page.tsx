@@ -13,27 +13,27 @@ const pilares = [
     id: "iso",
     icon: <Settings size={32} />,
     title: "Sistemas de Gestión ISO",
-    subtitle: "Calidad y Eficiencia",
+    subtitle: "Calidad y eficiencia",
     content: "La estandarización no es un destino, es una estrategia de supervivencia en mercados globales. Implementar las normas ISO 9001 y 14001 permite a las empresas costarricenses no solo ordenar su casa, sino hablar el mismo idioma técnico que sus clientes internacionales, reduciendo costos por ineficiencia hasta en un 20% anual.",
     desc: "Acompañamiento integral para la implementación y auditoría de normas internacionales que optimizan su operación.",
-    items: ["ISO 9001: Gestión de Calidad", "ISO 14001: Gestión Ambiental"],
+    items: ["ISO 9001: Gestión de calidad", "ISO 14001: Gestión ambiental"],
     color: "from-emerald-500/20 to-transparent"
   },
   {
     id: "tst",
     icon: <ShieldAlert size={32} />,
     title: "Salud y Seguridad (TST)",
-    subtitle: "Cumplimiento Legal",
+    subtitle: "Cumplimiento legal",
     content: "Más allá del cumplimiento punitivo ante el Ministerio de Salud o el MTSS, la gestión preventiva del riesgo laboral es el activo más valioso de una organización. Un Plan de Emergencia bien estructurado y brigadas capacitadas no son solo requisitos legales; son la garantía de continuidad del negocio ante imprevistos, protegiendo el capital humano y la reputación corporativa.",
     desc: "Garantizamos entornos laborales seguros cumpliendo con toda la normativa del Ministerio de Salud y el MTSS.",
-    items: ["Planes de Emergencia", "Conformación de Brigadas", "Auditorías de Riesgos"],
+    items: ["Planes de emergencia", "Conformación de brigadas", "Auditorías de riesgos"],
     color: "from-emerald-500/20 to-transparent"
   },
   {
     id: "sostenibilidad",
     icon: <Leaf size={32} />,
-    title: "Sellos de Sostenibilidad",
-    subtitle: "Diferenciación Verde",
+    title: "Sellos de sostenibilidad",
+    subtitle: "Diferenciación verde",
     content: "En una economía que premia la transparencia, los galardones como Bandera Azul Ecológica y Carbono Neutralidad han dejado de ser opcionales para convertirse en potentes herramientas de diferenciación. Estas certificaciones validan ante el mercado que el compromiso ambiental de la empresa es medible, real y alineado con las metas país de descarbonización.",
     desc: "Posicionamos su marca mediante galardones que certifican su compromiso real con el medio ambiente.",
     items: ["Bandera Azul Ecológica", "Carbono Neutralidad"],
@@ -43,17 +43,17 @@ const pilares = [
 
 const beneficios = [
   {
-    title: "Confianza del Cliente",
+    title: "Confianza del cliente",
     desc: "Obtener certificaciones impulsa la seguridad del mercado en sus procesos. Generamos credibilidad ante sus socios comerciales y clientes finales mediante estándares verificables.",
     icon: <ShieldCheck size={40} />,
   },
   {
-    title: "Eficiencia Operativa",
+    title: "Eficiencia operativa",
     desc: "La consultoría especializada permite identificar y mitigar riesgos, reduciendo desperdicios y optimizando costos relacionados con ausencias o multas.",
     icon: <Zap size={40} />,
   },
   {
-    title: "Oportunidades de Negocio",
+    title: "Oportunidades de negocio",
     desc: "Le posicionamos como una empresa competitiva para acceder a licitaciones públicas y mercados internacionales que exigen certificaciones de calidad y sostenibilidad.",
     icon: <Globe2 size={40} />,
   }
@@ -62,8 +62,8 @@ const beneficios = [
 const metodologiaPro = [
   {
     number: "01",
-    title: "Análisis de Brechas",
-    tag: "Fase de Diagnóstico",
+    title: "Análisis de brechas",
+    tag: "Fase de diagnóstico",
     desc: "Realizamos una auditoría diagnóstica para identificar las discrepancias entre su operación actual y los requisitos de la norma (ISO/TST).",
     details: ["Auditoría de sitio", "Mapeo de procesos", "Informe de hallazgos"],
     icon: <Search size={28} />,
@@ -71,8 +71,8 @@ const metodologiaPro = [
   },
   {
     number: "02",
-    title: "Arquitectura del Sistema",
-    tag: "Fase de Diseño",
+    title: "Arquitectura del sistema",
+    tag: "Fase de diseño",
     desc: "Diseñamos la documentación y los controles operativos necesarios, asegurando que el sistema se adapte a su empresa y no al revés.",
     details: ["Manuales de gestión", "Capacitación técnica", "KPIs de control"],
     icon: <Settings2 size={28} />,
@@ -80,8 +80,8 @@ const metodologiaPro = [
   },
   {
     number: "03",
-    title: "Validación y Cierre",
-    tag: "Fase de Certificación",
+    title: "Validación y cierre",
+    tag: "Fase de certificación",
     desc: "Acompañamos la auditoría externa y cerramos cualquier hallazgo para garantizar la entrega de su certificación oficial.",
     details: ["Pre-auditoría", "Acompañamiento legal", "Sello de cumplimiento"],
     icon: <ShieldCheck size={28} />,
@@ -142,7 +142,7 @@ export default function HeroCertificaciones() {
             className="text-5xl md:text-7xl font-bold text-white leading-tight"
           >
             Elevamos sus <br />
-            <span className="text-bukue-primary">Estándares.</span>
+            <span className="text-bukue-primary">estándares.</span>
           </motion.h1>
 
           {/* Subtítulo enfocado en TST e ISO */}
@@ -168,13 +168,13 @@ export default function HeroCertificaciones() {
               href="#nuestros-pilares"
               className="bg-bukue-primary hover:bg-white text-white hover:text-bukue-dark px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl shadow-bukue-primary/20 text-center"
             >
-              Explorar Soluciones
+              Explorar soluciones
             </a>
             <a
               href="#contacto"
               className="border border-white/20 hover:bg-white/10 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 backdrop-blur-sm text-center"
             >
-              Agendar Diagnóstico
+              Agendar diagnóstico
             </a>
           </motion.div>
         </div>
@@ -198,7 +198,7 @@ export default function HeroCertificaciones() {
           <div className="mb-20">
             <h2 className="text-bukue-dark text-4xl md:text-5xl font-black mb-6 tracking-tighter">
               Especialización que genera <br />
-              <span className="text-bukue-primary text-3xl md:text-4xl">Valor Corporativo</span>
+              <span className="text-bukue-primary text-3xl md:text-4xl">valor corporativo</span>
             </h2>
             <div className="w-24 h-2 bg-bukue-primary rounded-full" />
           </div>
@@ -286,7 +286,7 @@ export default function HeroCertificaciones() {
                 viewport={{ once: true }}
               >
                 <span className="text-bukue-primary font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
-                  Valor Estratégico
+                  Valor estratégico
                 </span>
                 <h2 className="text-bukue-dark text-4xl md:text-5xl font-black mb-8 leading-tight">
                   ¿Por qué certificar su <br />
@@ -352,7 +352,7 @@ export default function HeroCertificaciones() {
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24">
             <h2 className="text-bukue-dark text-4xl md:text-6xl font-black mb-8 leading-[1.1]">
               Su ruta crítica hacia la <br />
-              <span className="text-bukue-primary italic">Excelencia Normativa</span>
+              <span className="text-bukue-primary italic">excelencia normativa</span>
             </h2>
             <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed">
               Eliminamos la incertidumbre del proceso mediante un acompañamiento
@@ -471,7 +471,7 @@ export default function HeroCertificaciones() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-bold tracking-widest">Llámenos</p>
-                      <p className="text-lg font-medium">+(506) 8801-7441</p>
+                      <p className="text-lg font-medium">+506 8801-7441</p>
                     </div>
                   </div>
                   <a
@@ -528,7 +528,7 @@ export default function HeroCertificaciones() {
                     className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-bukue-primary focus:outline-none transition-colors text-gray-400"
                   >
                     <option value="Sistemas ISO">Interés: Sistemas ISO</option>
-                    <option value="Salud Ocupacional">Interés: Salud Ocupacional (TST)</option>
+                    <option value="Salud Ocupacional">Interés: Salud ocupacional (TST)</option>
                     <option value="Sostenibilidad">Interés: Sostenibilidad / Bandera Azul</option>
                   </select>
 
@@ -548,7 +548,7 @@ export default function HeroCertificaciones() {
                       <Loader2 className="animate-spin" size={20} />
                     ) : (
                       <>
-                        Solicitar Diagnóstico Gratuito
+                        Solicitar diagnóstico gratuito
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                       </>
                     )}

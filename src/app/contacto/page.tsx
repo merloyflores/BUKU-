@@ -34,7 +34,7 @@ export default function Contacto() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-bold text-bukue-dark mb-4"
             >
-              Hablemos de su <span className="text-bukue-primary">Futuro Sostenible</span>
+              Hablemos de su <span className="text-bukue-primary">futuro sostenible</span>
             </motion.h1>
             <p className="text-gray-600 text-lg">Estamos listos para asesorarle en sus proyectos ambientales y de salud ocupacional.</p>
           </div>
@@ -43,13 +43,13 @@ export default function Contacto() {
             {/* Info de Contacto */}
             <div className="space-y-8 ">
               <div className="bg-bukue-accent p-6 rounded-[2.5rem] border border-bukue-primary/10 shadow-xl">
-                <h3 className="text-xl font-bold text-bukue-dark mb-6">Información Directa</h3>
+                <h3 className="text-xl font-bold text-bukue-dark mb-6">Información directa</h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 text-gray-700">
                     <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
                       <Phone size={20} />
                     </div>
-                    <span>(506) 8801-7441</span>
+                    <span>+506 8801-7441</span>
                   </div>
                   <div className="flex items-center gap-4 text-gray-700">
                     <div className="p-3 bg-white rounded-xl shadow-sm text-bukue-primary shrink-0">
@@ -83,7 +83,7 @@ export default function Contacto() {
                     Tailwind (sería text-[24px]); react-icons sí acepta
                     el prop `size` directamente. */}
                 <IoLogoWhatsapp size={24} />
-                WhatsApp Directo
+                WhatsApp directo
               </a>
             </div>
 
@@ -96,7 +96,7 @@ export default function Contacto() {
               >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-bukue-dark ml-1">Nombre Completo</label>
+                    <label className="text-sm font-bold text-bukue-dark ml-1">Nombre completo</label>
                     <input
                       name="nombre"
                       type="text"
@@ -106,7 +106,7 @@ export default function Contacto() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-bukue-dark ml-1">Correo Electrónico</label>
+                    <label className="text-sm font-bold text-bukue-dark ml-1">Correo electrónico</label>
                     <input
                       name="email"
                       type="email"
@@ -118,7 +118,7 @@ export default function Contacto() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="asunto" className="text-sm font-bold text-bukue-dark ml-1">Asunto / Servicio</label>
+                  <label htmlFor="asunto" className="text-sm font-bold text-bukue-dark ml-1">Asunto / servicio</label>
                   <input
                     name="asunto"
                     id="asunto"
@@ -148,7 +148,7 @@ export default function Contacto() {
                   {isPending ? (
                     <>Enviando... <Loader2 size={18} className="animate-spin" /></>
                   ) : (
-                    <>Enviar Mensaje <Send size={18} /></>
+                    <>Enviar mensaje <Send size={18} /></>
                   )}
                 </button>
               </form>

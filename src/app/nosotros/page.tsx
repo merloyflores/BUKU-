@@ -42,11 +42,11 @@ export default function Nosotros() {
                 href="/#servicios"
                 className="bg-bukue-primary hover:bg-bukue-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group"
               >
-                Nuestros Servicios <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                Nuestros servicios <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <div className="flex items-center gap-3 px-6 py-4 rounded-full border border-white/20 backdrop-blur-sm text-white font-semibold">
                 <div className="w-2 h-2 bg-bukue-light rounded-full animate-pulse" />
-                +10 Años de Experiencia
+                +10 años de experiencia
               </div>
             </div>
           </motion.div>
@@ -90,7 +90,7 @@ export default function Nosotros() {
 
           <div className="space-y-8">
             <div className="space-y-4">
-              <span className="text-bukue-primary font-bold uppercase text-sm tracking-widest">Sobre Nosotros</span>
+              <span className="text-bukue-primary font-bold uppercase text-sm tracking-widest">Sobre nosotros</span>
               <h2 className="text-4xl md:text-5xl font-bold text-bukue-dark leading-tight">
                 Equilibramos el éxito económico con la <span className="text-bukue-primary">protección ambiental.</span>
               </h2>
@@ -105,14 +105,14 @@ export default function Nosotros() {
               {[
                 {
                   icon: <Target className="text-white" />,
-                  title: "Resultados Rentables",
+                  title: "Resultados rentables",
                   desc: "Garantizamos que cada proyecto genere ingresos sostenibles mientras cumple con la normativa.",
                   color: "bg-bukue-primary"
                 },
                 {
                   icon: <Users className="text-white" />,
-                  title: "Compromiso Integral",
-                  desc: "Trabajamos mano a mano con usted para minimizar el impacto ambiental y maximizar la rentabilidad.",
+                  title: "Compromiso integral",
+                  desc: "Nos involucramos en cada etapa de su proyecto, como una extensión de su equipo, para reducir el impacto ambiental sin sacrificar su rentabilidad.",
                   color: "bg-bukue-dark"
                 }
               ].map((item, idx) => (
@@ -147,7 +147,7 @@ export default function Nosotros() {
               whileInView={{ opacity: 1 }}
               className="text-bukue-primary font-bold uppercase text-sm tracking-[0.2em]"
             >
-              Liderazgo Técnico
+              Liderazgo técnico
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-black text-bukue-dark mt-4">
               El equipo detrás de su <span className="text-bukue-primary">cumplimiento ambiental.</span>
@@ -163,21 +163,21 @@ export default function Nosotros() {
                 name: "Leonel Lépiz López",
                 role: "Lic. Gestión Ambiental",
                 image: "/LeonelPerfil5.png",
-                specialty: "Estratega en Viabilidades",
+                specialty: "Estratega en viabilidades",
                 desc: "Especialista en la coordinación técnica de proyectos de alto impacto nacional."
               },
               {
                 name: "Jossué Zeledón Cruz",
                 role: "Ing. Gestión Ambiental",
                 image: "/JossuePerfil2.png",
-                specialty: "Especialista en Soluciones",
+                specialty: "Especialista en soluciones ambientales",
                 desc: "Experto en la optimización de procesos y cumplimiento técnico institucional."
               },
               {
                 name: "Danny Zamora Chacón",
                 role: "Gestor Ambiental",
                 image: "/DannyPerfil2.png",
-                specialty: "Gestión de Campo",
+                specialty: "Gestión de campo",
                 desc: "Dedicado a la implementación efectiva de medidas de mitigación y seguimiento."
               }
             ].map((member, idx) => (
@@ -304,7 +304,7 @@ export default function Nosotros() {
             <div className="lg:w-1/2 space-y-8">
               <div className="space-y-4">
                 <span className="flex items-center gap-2 text-bukue-light font-bold uppercase text-sm tracking-widest">
-                  <Lightbulb className="animate-pulse" size={18} /> Conocimiento que Transforma
+                  <Lightbulb className="animate-pulse" size={18} /> Conocimiento que transforma
                 </span>
                 <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
                   Nuestra misión va más allá de la <span className="text-bukue-primary">asesoría.</span>

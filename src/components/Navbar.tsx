@@ -64,8 +64,8 @@ const Navbar = () => {
   }, [isOpen]);
 
   const serviceSubLinks = [
-    { name: 'Trámites en Setena', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y Regencia Ambiental ante SETENA' },
-    { name: 'Salud Ocupacional', href: '/salud', desc: 'Programas de salud y seguridad laboral' },
+    { name: 'Trámites en SETENA', href: '/ViabilidadesAmbientales', desc: 'Viabilidad y regencia ambiental ante SETENA' },
+    { name: 'Salud ocupacional', href: '/salud', desc: 'Programas de salud y seguridad laboral' },
     { name: 'Certificaciones', href: '/certificaciones', desc: 'Acompañamiento en normas y certificaciones' },
   ];
 
@@ -145,10 +145,7 @@ const Navbar = () => {
                 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0
                 transition-all duration-200 w-80">
                 <div className="bg-white rounded-2xl border border-[#EDEBE2] shadow-xl shadow-[#1F3328]/6 overflow-hidden">
-                  <div className="px-5 pt-4 pb-2">
-                    <span className="font-serif italic text-lg text-[#1F3328]">Servicios</span>
-                  </div>
-                  <div className="pb-2">
+                  <div className="pt-2 pb-2">
                     {serviceSubLinks.map((sub, i) => (
                       <Link
                         key={sub.href}
